@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -65,11 +64,12 @@ export default {
 				},
 				pixelify: {
 					orange: '#ff6b35',
-					'orange-dark': '#e55527',
-					'orange-light': '#ff8c5a',
+					'orange-dark': '#e6521c',
+					'orange-light': '#ff8552',
 					black: '#1a1a1a',
-					gray: '#666666',
-					'gray-light': '#f5f5f5',
+					gray: '#4a4a4a',
+					'gray-light': '#f8f8f8',
+					white: '#ffffff',
 				}
 			},
 			borderRadius: {
