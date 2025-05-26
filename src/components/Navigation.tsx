@@ -31,52 +31,54 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-pixelify-blue to-pixelify-purple bg-clip-text text-transparent">
-              Pixelify
-            </span>
+            <img 
+              src="/lovable-uploads/bdb8093e-cd08-4ce0-8449-9c0d0e399d68.png" 
+              alt="Pixelify" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-pixelify-blue transition-colors font-medium"
+              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               Accueil
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-pixelify-blue transition-colors font-medium"
+              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               À propos
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-pixelify-blue transition-colors font-medium"
+              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="text-gray-700 hover:text-pixelify-blue transition-colors font-medium"
+              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               Portfolio
             </button>
             <button 
               onClick={() => scrollToSection('testimonials')}
-              className="text-gray-700 hover:text-pixelify-blue transition-colors font-medium"
+              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               Témoignages
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-pixelify-blue transition-colors font-medium"
+              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               Contact
             </button>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-pixelify-blue to-pixelify-purple hover:from-pixelify-blue-dark hover:to-pixelify-purple text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105"
+              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105"
             >
               Commencer un projet
             </Button>
@@ -86,7 +88,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-pixelify-blue focus:outline-none"
+              className="text-pixelify-black hover:text-pixelify-orange focus:outline-none"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMobileMenuOpen ? (
@@ -105,44 +107,44 @@ const Navigation = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="block px-3 py-2 text-gray-700 hover:text-pixelify-blue transition-colors font-medium w-full text-left"
+                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Accueil
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="block px-3 py-2 text-gray-700 hover:text-pixelify-blue transition-colors font-medium w-full text-left"
+                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 À propos
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="block px-3 py-2 text-gray-700 hover:text-pixelify-blue transition-colors font-medium w-full text-left"
+                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('portfolio')}
-                className="block px-3 py-2 text-gray-700 hover:text-pixelify-blue transition-colors font-medium w-full text-left"
+                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Portfolio
               </button>
               <button 
                 onClick={() => scrollToSection('testimonials')}
-                className="block px-3 py-2 text-gray-700 hover:text-pixelify-blue transition-colors font-medium w-full text-left"
+                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Témoignages
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block px-3 py-2 text-gray-700 hover:text-pixelify-blue transition-colors font-medium w-full text-left"
+                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Contact
               </button>
               <div className="px-3 py-2">
                 <Button 
                   onClick={() => scrollToSection('contact')}
-                  className="w-full bg-gradient-to-r from-pixelify-blue to-pixelify-purple text-white"
+                  className="w-full bg-pixelify-orange hover:bg-pixelify-orange-dark text-white"
                 >
                   Commencer un projet
                 </Button>

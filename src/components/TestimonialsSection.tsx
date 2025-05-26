@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
         {[...Array(5)].map((_, i) => (
           <svg
             key={i}
-            className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+            className={`w-5 h-5 ${i < rating ? 'text-pixelify-orange' : 'text-gray-300'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -69,18 +69,18 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-pixelify-blue/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-pixelify-purple/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-10 w-64 h-64 bg-pixelify-orange/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-pixelify-orange/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pixelify-blue to-pixelify-purple bg-clip-text text-transparent">
+            <span className="text-pixelify-orange">
               Ce que disent nos clients
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-pixelify-gray max-w-3xl mx-auto leading-relaxed">
             La satisfaction de nos clients est notre priorité. Découvrez leurs témoignages sur leur expérience 
             de collaboration avec Pixelify.
           </p>
@@ -88,11 +88,11 @@ const TestimonialsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 shadow-lg animate-fade-in">
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 shadow-lg animate-fade-in bg-white">
               <CardContent className="p-8">
                 <StarRating rating={testimonial.rating} />
                 
-                <blockquote className="text-gray-700 leading-relaxed mb-6 italic">
+                <blockquote className="text-pixelify-gray leading-relaxed mb-6 italic">
                   "{testimonial.content}"
                 </blockquote>
                 
@@ -100,11 +100,11 @@ const TestimonialsSection = () => {
                   <img 
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-pixelify-blue/20"
+                    className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-pixelify-orange/20"
                   />
                   <div>
-                    <div className="font-bold text-gray-900">{testimonial.name}</div>
-                    <div className="text-pixelify-blue text-sm font-medium">{testimonial.company}</div>
+                    <div className="font-bold text-pixelify-black">{testimonial.name}</div>
+                    <div className="text-pixelify-orange text-sm font-medium">{testimonial.company}</div>
                   </div>
                 </div>
               </CardContent>
@@ -114,21 +114,21 @@ const TestimonialsSection = () => {
 
         {/* Stats Section */}
         <div className="mt-20 grid md:grid-cols-4 gap-8 text-center animate-fade-in">
-          <div className="bg-gradient-to-br from-pixelify-blue/10 to-pixelify-blue/5 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-pixelify-blue mb-2">98%</div>
-            <div className="text-gray-600 font-medium">Clients satisfaits</div>
+          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
+            <div className="text-4xl font-bold text-pixelify-orange mb-2">98%</div>
+            <div className="text-pixelify-gray font-medium">Clients satisfaits</div>
           </div>
-          <div className="bg-gradient-to-br from-pixelify-purple/10 to-pixelify-purple/5 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-pixelify-purple mb-2">4.9/5</div>
-            <div className="text-gray-600 font-medium">Note moyenne</div>
+          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
+            <div className="text-4xl font-bold text-pixelify-orange mb-2">4.9/5</div>
+            <div className="text-pixelify-gray font-medium">Note moyenne</div>
           </div>
-          <div className="bg-gradient-to-br from-pixelify-orange/10 to-pixelify-orange/5 rounded-2xl p-6">
+          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
             <div className="text-4xl font-bold text-pixelify-orange mb-2">100+</div>
-            <div className="text-gray-600 font-medium">Projets livrés</div>
+            <div className="text-pixelify-gray font-medium">Projets livrés</div>
           </div>
-          <div className="bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-green-600 mb-2">24h</div>
-            <div className="text-gray-600 font-medium">Temps de réponse</div>
+          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
+            <div className="text-4xl font-bold text-pixelify-orange mb-2">24h</div>
+            <div className="text-pixelify-gray font-medium">Temps de réponse</div>
           </div>
         </div>
       </div>

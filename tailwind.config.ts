@@ -64,13 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				pixelify: {
-					blue: '#1e40af',
-					'blue-dark': '#1e3a8a',
-					'blue-light': '#3b82f6',
-					purple: '#7c3aed',
-					'purple-light': '#a855f7',
-					orange: '#f97316',
-					'orange-light': '#fb923c',
+					orange: '#ff6b35',
+					'orange-dark': '#e55527',
+					'orange-light': '#ff8c5a',
+					black: '#1a1a1a',
+					gray: '#666666',
+					'gray-light': '#f5f5f5',
 				}
 			},
 			borderRadius: {

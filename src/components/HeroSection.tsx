@@ -18,28 +18,37 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-blue/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-purple/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-orange/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-orange/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-orange/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in">
+            {/* Logo Integration */}
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/lovable-uploads/bdb8093e-cd08-4ce0-8449-9c0d0e399d68.png" 
+                alt="Pixelify Logo" 
+                className="h-16 w-auto"
+              />
+            </div>
+            
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-pixelify-blue via-pixelify-purple to-pixelify-orange bg-clip-text text-transparent">
+              <span className="text-pixelify-orange">
                 Créons votre
               </span>
               <br />
-              <span className="text-gray-900">
+              <span className="text-pixelify-black">
                 présence digitale
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-pixelify-gray mb-8 leading-relaxed">
               Agence web créative spécialisée dans le design moderne et le développement sur mesure. 
               Nous transformons vos idées en expériences digitales exceptionnelles.
             </p>
@@ -48,7 +57,7 @@ const HeroSection = () => {
               <Button 
                 onClick={scrollToContact}
                 size="lg"
-                className="bg-gradient-to-r from-pixelify-blue to-pixelify-purple hover:from-pixelify-blue-dark hover:to-pixelify-purple text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Démarrer votre projet
               </Button>
@@ -56,7 +65,7 @@ const HeroSection = () => {
                 onClick={scrollToPortfolio}
                 variant="outline"
                 size="lg"
-                className="border-2 border-pixelify-blue text-pixelify-blue hover:bg-pixelify-blue hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
               >
                 Voir nos réalisations
               </Button>
@@ -65,20 +74,20 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-blue mb-2">100+</div>
-                <div className="text-gray-600">Projets réalisés</div>
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">100+</div>
+                <div className="text-pixelify-gray">Projets réalisés</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-purple mb-2">5+</div>
-                <div className="text-gray-600">Années d'expérience</div>
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">5+</div>
+                <div className="text-pixelify-gray">Années d'expérience</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">50+</div>
-                <div className="text-gray-600">Clients satisfaits</div>
+                <div className="text-pixelify-gray">Clients satisfaits</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-blue mb-2">24/7</div>
-                <div className="text-gray-600">Support client</div>
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">24/7</div>
+                <div className="text-pixelify-gray">Support client</div>
               </div>
             </div>
           </div>
@@ -87,8 +96,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-pixelify-gray rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-pixelify-gray rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
