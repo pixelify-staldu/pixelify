@@ -1,0 +1,98 @@
+
+import React from 'react';
+import { Button } from "@/components/ui/button";
+
+const HeroSection = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToPortfolio = () => {
+    const element = document.getElementById('portfolio');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-blue/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-purple/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-orange/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-pixelify-blue via-pixelify-purple to-pixelify-orange bg-clip-text text-transparent">
+                Créons votre
+              </span>
+              <br />
+              <span className="text-gray-900">
+                présence digitale
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              Agence web créative spécialisée dans le design moderne et le développement sur mesure. 
+              Nous transformons vos idées en expériences digitales exceptionnelles.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <Button 
+                onClick={scrollToContact}
+                size="lg"
+                className="bg-gradient-to-r from-pixelify-blue to-pixelify-purple hover:from-pixelify-blue-dark hover:to-pixelify-purple text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Démarrer votre projet
+              </Button>
+              <Button 
+                onClick={scrollToPortfolio}
+                variant="outline"
+                size="lg"
+                className="border-2 border-pixelify-blue text-pixelify-blue hover:bg-pixelify-blue hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+              >
+                Voir nos réalisations
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-blue mb-2">100+</div>
+                <div className="text-gray-600">Projets réalisés</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-purple mb-2">5+</div>
+                <div className="text-gray-600">Années d'expérience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">50+</div>
+                <div className="text-gray-600">Clients satisfaits</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-pixelify-blue mb-2">24/7</div>
+                <div className="text-gray-600">Support client</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
