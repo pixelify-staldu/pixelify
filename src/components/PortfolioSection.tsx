@@ -82,7 +82,7 @@ const PortfolioSection = () => {
                   transition-all duration-300 rounded-full px-6 py-2
                   ${activeFilter === filter.key 
                     ? 'bg-gradient-to-r from-pixelify-blue to-pixelify-purple text-white shadow-lg transform scale-105' 
-                    : 'border-pixelify-blue text-pixelify-blue hover:bg-pixelify-blue hover:text-white'
+                    : 'border-pixelify-blue text-pixelify-blue hover:bg-pixelify-blue hover:text-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
                   }
                 `}
               >
@@ -108,7 +108,7 @@ const PortfolioSection = () => {
                     <Button 
                       size="sm"
                       onClick={() => window.open(project.project_url, '_blank')}
-                      className="bg-white text-pixelify-blue hover:bg-pixelify-blue hover:text-white transition-all duration-300 rounded-full"
+                      className="bg-white text-pixelify-blue hover:bg-pixelify-blue hover:black rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                     >
                       Voir le projet →
                     </Button>

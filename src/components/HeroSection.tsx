@@ -30,13 +30,6 @@ const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in">
             {/* Logo Integration */}
-            <div className="flex justify-center mb-8">
-              <img 
-                src="/lovable-uploads/bdb8093e-cd08-4ce0-8449-9c0d0e399d68.png" 
-                alt="Pixelify Logo" 
-                className="h-16 w-auto"
-              />
-            </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="text-pixelify-orange">
