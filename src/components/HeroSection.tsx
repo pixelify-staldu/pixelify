@@ -69,7 +69,8 @@ const HeroSection = () => {
               >
                 Voir nos réalisations
               </Button>
-            </div>            
+            </div>
+          </div>
         </div>
       </div>
 
