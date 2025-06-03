@@ -69,28 +69,7 @@ const HeroSection = () => {
               >
                 Voir nos réalisations
               </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">100+</div>
-                <div className="text-pixelify-gray">Projets réalisés</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">5+</div>
-                <div className="text-pixelify-gray">Années d'expérience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">50+</div>
-                <div className="text-pixelify-gray">Clients satisfaits</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pixelify-orange mb-2">24/7</div>
-                <div className="text-pixelify-gray">Support client</div>
-              </div>
-            </div>
-          </div>
+            </div>            
         </div>
       </div>
 
