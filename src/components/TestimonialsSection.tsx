@@ -1,8 +1,26 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
+import { supabase } from '@/integrations/supabase/client';
 
 const TestimonialsSection = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    checkSectionVisibility();
+  }, []);
+
+  const checkSectionVisibility = async () => {
+    const { data } = await supabase
+      .from('site_sections')
+      .select('is_visible')
+      .eq('section_type', 'testimonials')
+      .single();
+    
+    if (data) {
+      setIsVisible(data.is_visible);
+    }
+  };
+
   const testimonials = [
     {
       name: "Marie Dubois",
@@ -64,6 +82,10 @@ const TestimonialsSection = () => {
       </div>
     );
   };
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
