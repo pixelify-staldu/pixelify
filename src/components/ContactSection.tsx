@@ -285,15 +285,6 @@ const ContactSection = () => {
                     </svg>
                   </a>
                 </div>
-
-                <div className="text-center">
-                  <p className="text-gray-600 mb-4">Besoin d'une réponse rapide ?</p>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-2"
-                  >
-                    WhatsApp
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           </div>
