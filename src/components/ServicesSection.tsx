@@ -57,7 +57,7 @@ const ServicesSection = () => {
     //     </svg>
     //   ),
     // },
-    {
+    // {
     //   title: "Maintenance & Support",
     //   description: "Support technique continu et mises à jour.",
     //   icon: (
