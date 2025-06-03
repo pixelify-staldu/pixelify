@@ -1,8 +1,11 @@
-
 import React from 'react';
+import { useAuth } from '@/contexts/AuthContext';
+import { Link } from 'react-router-dom';
+import { Settings } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { isAdmin } = useAuth();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -185,7 +188,7 @@ const Footer = () => {
                 © {currentYear} Pixelify. Tous droits réservés.
               </p>
             </div>
-            <div className="flex space-x-6">
+            <div className="flex items-center space-x-6">
               <a href="#" className="text-gray-400 text-sm hover:text-pixelify-orange transition-colors duration-300">
                 Mentions légales
               </a>
@@ -195,6 +198,17 @@ const Footer = () => {
               <a href="#" className="text-gray-400 text-sm hover:text-pixelify-orange transition-colors duration-300">
                 CGV
               </a>
+              
+              {/* Admin Button - Only visible to admin users */}
+              {isAdmin && (
+                <Link 
+                  to="/admin"
+                  className="text-gray-400 hover:text-pixelify-orange transition-colors duration-300 flex items-center space-x-1 text-sm"
+                >
+                  <Settings className="w-4 h-4" />
+                  <span>Admin</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>
