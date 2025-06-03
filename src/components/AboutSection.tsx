@@ -76,30 +76,7 @@ const AboutSection = () => {
             />
           </div>
         </div>
-
-        {/* Team Section */}
-        <div className="animate-fade-in">
-          <h3 className="text-3xl font-bold text-center mb-12 text-pixelify-black">Notre Équipe</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg bg-white">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 relative">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 w-24 h-24 rounded-full mx-auto bg-pixelify-orange/20 group-hover:opacity-0 transition-opacity duration-300"></div>
-                  </div>
-                  <h4 className="text-xl font-bold text-pixelify-black mb-2">{member.name}</h4>
-                  <p className="text-pixelify-orange font-semibold mb-3">{member.role}</p>
-                  <p className="text-pixelify-gray text-sm leading-relaxed">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+      
       </div>
     </section>
   );
