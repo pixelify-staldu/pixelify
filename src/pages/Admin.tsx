@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import ImageUpload from '@/components/ImageUpload';
 
 const Admin = () => {
   const { user, isAdmin, signOut, loading } = useAuth();
@@ -178,6 +179,14 @@ const SiteInfoManager = () => {
       <CardContent>
         <div className="space-y-4">
           <div>
+            <label className="block text-sm font-medium mb-2">Logo du site</label>
+            <ImageUpload 
+              folder="main_images"
+              currentImageUrl={siteInfo.logo_url}
+              onUploadComplete={(url) => setSiteInfo({ ...siteInfo, logo_url: url })}
+            />
+          </div>
+          <div>
             <label className="block text-sm font-medium mb-2">Nom de l'entreprise</label>
             <Input
               value={siteInfo.company_name || ''}
@@ -310,15 +319,19 @@ const PortfolioManager = () => {
               value={newProject.category}
               onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
             />
-            <Input
-              placeholder="URL de l'image"
-              value={newProject.image_url}
-              onChange={(e) => setNewProject({ ...newProject, image_url: e.target.value })}
-            />
+            <div className="col-span-2">
+              <label className="block text-sm font-medium mb-2">Image du projet</label>
+              <ImageUpload 
+                folder="projects_images"
+                currentImageUrl={newProject.image_url}
+                onUploadComplete={(url) => setNewProject({ ...newProject, image_url: url })}
+              />
+            </div>
             <Input
               placeholder="URL du projet"
               value={newProject.project_url}
               onChange={(e) => setNewProject({ ...newProject, project_url: e.target.value })}
+              className="col-span-2"
             />
             <Input
               placeholder="Technologies (séparées par des virgules)"
@@ -349,9 +362,18 @@ const PortfolioManager = () => {
           <div className="space-y-4">
             {projects.map((project) => (
               <div key={project.id} className="flex items-center justify-between p-4 border rounded">
-                <div>
-                  <h3 className="font-medium">{project.title}</h3>
-                  <p className="text-sm text-gray-500">{project.category}</p>
+                <div className="flex items-center space-x-4">
+                  {project.image_url && (
+                    <img 
+                      src={project.image_url} 
+                      alt={project.title} 
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                  )}
+                  <div>
+                    <h3 className="font-medium">{project.title}</h3>
+                    <p className="text-sm text-gray-500">{project.category}</p>
+                  </div>
                 </div>
                 <Button
                   onClick={() => deleteProject(project.id)}

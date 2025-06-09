@@ -1,8 +1,26 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
+import { supabase } from '@/integrations/supabase/client';
 
 const HeroSection = () => {
+  const [siteInfo, setSiteInfo] = useState<any>({});
+
+  useEffect(() => {
+    fetchSiteInfo();
+  }, []);
+
+  const fetchSiteInfo = async () => {
+    const { data } = await supabase
+      .from('site_info')
+      .select('*')
+      .single();
+    
+    if (data) {
+      setSiteInfo(data);
+    }
+  };
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -30,6 +48,15 @@ const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in">
             {/* Logo Integration */}
+            {siteInfo.logo_url && (
+              <div className="mb-8 flex justify-center">
+                <img 
+                  src={siteInfo.logo_url} 
+                  alt={siteInfo.company_name || "Logo"} 
+                  className="h-20 w-auto"
+                />
+              </div>
+            )}
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="text-pixelify-orange">
@@ -42,8 +69,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-pixelify-gray mb-8 leading-relaxed">
-              Agence web créative spécialisée dans le design moderne et le développement sur mesure. 
-              Nous transformons vos idées en expériences digitales exceptionnelles.
+              {siteInfo.description || "Agence web créative spécialisée dans le design moderne et le développement sur mesure. Nous transformons vos idées en expériences digitales exceptionnelles."}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
