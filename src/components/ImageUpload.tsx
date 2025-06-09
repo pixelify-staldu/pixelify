@@ -29,7 +29,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ folder, onUploadComplete, cur
       const filePath = `${folder}/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
-        .from('images')
+        .from('pixelify')
         .upload(filePath, file);
 
       if (uploadError) {
@@ -38,7 +38,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ folder, onUploadComplete, cur
 
       // Get the public URL
       const { data: { publicUrl } } = supabase.storage
-        .from('images')
+        .from('pixelify')
         .getPublicUrl(filePath);
 
       onUploadComplete(publicUrl);
