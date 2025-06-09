@@ -17,6 +17,8 @@ const HeroSection = () => {
       .single();
     
     if (data) {
+      console.log('Site info data:', data);
+      console.log('Logo URL:', data.logo_url);
       setSiteInfo(data);
     }
   };
@@ -54,6 +56,13 @@ const HeroSection = () => {
                   src={siteInfo.logo_url} 
                   alt={siteInfo.company_name || "Logo"} 
                   className="h-20 w-auto"
+                  onError={(e) => {
+                    console.error('Image failed to load:', siteInfo.logo_url);
+                    console.error('Error event:', e);
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully:', siteInfo.logo_url);
+                  }}
                 />
               </div>
             )}

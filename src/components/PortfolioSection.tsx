@@ -34,6 +34,7 @@ const PortfolioSection = () => {
       .order('display_order');
     
     if (data && !error) {
+      console.log('Portfolio projects:', data);
       setProjects(data);
       
       // Extract unique categories
@@ -101,6 +102,15 @@ const PortfolioSection = () => {
                   src={project.image_url || "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    console.error('Project image failed to load:', project.image_url);
+                    console.error('Error event:', e);
+                    // Fallback to placeholder image
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop";
+                  }}
+                  onLoad={() => {
+                    console.log('Project image loaded successfully:', project.image_url);
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {project.project_url && (
