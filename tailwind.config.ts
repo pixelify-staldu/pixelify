@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,9 +67,16 @@ export default {
 					orange: '#ff6b35',
 					'orange-dark': '#e6521c',
 					'orange-light': '#ff8552',
-					black: '#1a1a1a',
-					gray: '#4a4a4a',
-					'gray-light': '#f8f8f8',
+					navy: '#1e3a8a',
+					'navy-light': '#3b82f6',
+					'navy-dark': '#1e40af',
+					teal: '#0d9488',
+					'teal-light': '#14b8a6',
+					'teal-dark': '#0f766e',
+					charcoal: '#374151',
+					'charcoal-light': '#6b7280',
+					slate: '#f8fafc',
+					'slate-dark': '#e2e8f0',
 					white: '#ffffff',
 				}
 			},

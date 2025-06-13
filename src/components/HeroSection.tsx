@@ -42,8 +42,8 @@ const HeroSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-orange/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-orange/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-teal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-navy/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -72,12 +72,12 @@ const HeroSection = () => {
                 Créons votre
               </span>
               <br />
-              <span className="text-pixelify-black">
+              <span className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal bg-clip-text text-transparent">
                 présence digitale
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-pixelify-gray mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-pixelify-charcoal mb-8 leading-relaxed">
               {siteInfo.description || "Agence web créative spécialisée dans le design moderne et le développement sur mesure. Nous transformons vos idées en expériences digitales exceptionnelles."}
             </p>
 
@@ -93,7 +93,7 @@ const HeroSection = () => {
                 onClick={scrollToPortfolio}
                 variant="outline"
                 size="lg"
-                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                className="border-2 border-pixelify-navy text-pixelify-navy hover:bg-pixelify-navy hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
               >
                 Voir nos réalisations
               </Button>
@@ -104,8 +104,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-pixelify-gray rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-pixelify-gray rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-pixelify-charcoal rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-pixelify-charcoal rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
