@@ -16,7 +16,7 @@ const AboutSection = () => {
     },
     {
       title: "Qualité",
-      description: "Nous nous engageons à fournir un travail de haute qualité, en prêtant une attention méticuleuse aux détails.",
+      description: "Nous nous engageons à fournir un travail de haute qualité, en prêtant une attention méticuleuse aux détails et en respectant les normes les plus élevées.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26 12,2"/>
@@ -25,7 +25,7 @@ const AboutSection = () => {
     },
     {
       title: "Collaboration",
-      description: "Nous travaillons en étroite collaboration avec nos clients, en écoutant leurs besoins et en adaptant nos solutions.",
+      description: "Nous travaillons en étroite collaboration avec nos clients, en écoutant leurs besoins et en adaptant nos solutions pour atteindre leurs objectifs.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -37,7 +37,7 @@ const AboutSection = () => {
     },
     {
       title: "Transparence",
-      description: "Nous croyons en une communication ouverte et honnête, en gardant nos clients informés à chaque étape.",
+      description: "Nous croyons en une communication ouverte et honnête, en gardant nos clients informés à chaque étape du processus.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -55,18 +55,6 @@ const AboutSection = () => {
         </svg>
       ),
     },
-  ];
-
-  const services = [
-    "Création de Sites Web",
-    "Développement d'Applications",
-    "Design UI/UX",
-    "Optimisation SEO",
-    "Maintenance et Support",
-    "Conseil en Stratégie Digitale",
-    "E-commerce Solutions",
-    "Intégration de Systèmes",
-    "Formation et Ateliers"
   ];
 
   return (
@@ -118,25 +106,6 @@ const AboutSection = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-
-        {/* What We Do Section */}
-        <div className="animate-fade-in">
-          <h3 className="text-3xl font-bold mb-12 text-pixelify-charcoal text-center">
-            Ce que nous faisons
-          </h3>
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((service, index) => (
-                <div key={index} className="flex items-center group">
-                  <div className="w-3 h-3 bg-pixelify-orange rounded-full mr-4 group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="text-pixelify-charcoal font-medium group-hover:text-pixelify-orange transition-colors duration-300">
-                    {service}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 

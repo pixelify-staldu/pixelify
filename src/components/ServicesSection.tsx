@@ -36,36 +36,45 @@ const ServicesSection = () => {
         </svg>
       ),
     },
-    // {
-    //   title: "SEO & Marketing",
-    //   description: "Optimisation et stratégies marketing digitales.",
-    //   icon: (
-    //     <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    //       <line x1="18" y1="6" x2="6" y2="18"/>
-    //       <line x1="6" y1="6" x2="18" y2="18"/>
-    //       <circle cx="12" cy="12" r="10"/>
-    //     </svg>
-    //   ),
-    // },
-    // {
-    //   title: "Applications Mobiles",
-    //   description: "Applications natives et cross-platform pour mobile.",
-    //   icon: (
-    //     <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    //       <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-    //       <line x1="12" y1="18" x2="12.01" y2="18"/>
-    //     </svg>
-    //   ),
-    // },
-    // {
-    //   title: "Maintenance & Support",
-    //   description: "Support technique continu et mises à jour.",
-    //   icon: (
-    //     <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    //       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-    //     </svg>
-    //   ),
-    // }
+  ];
+
+  const detailedServices = [
+    {
+      title: "Création de Sites Web",
+      description: "Conception et développement de sites web sur mesure, adaptés à vos besoins spécifiques. Que ce soit pour un site vitrine, un blog ou une boutique en ligne, nous créons des interfaces intuitives et esthétiques."
+    },
+    {
+      title: "Développement d'Applications",
+      description: "Développement d'applications mobiles et web innovantes. Nous transformons vos idées en applications performantes et conviviales, adaptées à tous les appareils."
+    },
+    {
+      title: "Design UI/UX",
+      description: "Création d'interfaces utilisateur intuitives et d'expériences utilisateur fluides. Nous nous concentrons sur l'ergonomie et l'esthétique pour offrir une navigation agréable."
+    },
+    {
+      title: "Optimisation SEO",
+      description: "Amélioration de la visibilité de votre site web sur les moteurs de recherche. Nous optimisons votre contenu et votre structure pour attirer plus de visiteurs qualifiés."
+    },
+    {
+      title: "Maintenance et Support",
+      description: "Assistance continue pour assurer le bon fonctionnement de votre site ou application. Nous offrons des mises à jour régulières, des correctifs et un support technique réactif."
+    },
+    {
+      title: "Conseil en Stratégie Digitale",
+      description: "Accompagnement dans la définition et la mise en œuvre de votre stratégie numérique. Nous vous aidons à atteindre vos objectifs en ligne grâce à des conseils personnalisés."
+    },
+    {
+      title: "E-commerce Solutions",
+      description: "Développement de boutiques en ligne sécurisées et performantes. Nous intégrons des solutions de paiement, de gestion des stocks et de marketing pour booster vos ventes."
+    },
+    {
+      title: "Intégration de Systèmes",
+      description: "Connexion de vos outils et plateformes pour une gestion fluide de vos opérations. Nous assurons l'interopérabilité entre vos différents systèmes."
+    },
+    {
+      title: "Formation et Ateliers",
+      description: "Sessions de formation pour vous et votre équipe sur l'utilisation des outils numériques et les meilleures pratiques en ligne."
+    }
   ];
 
   return (
@@ -80,7 +89,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-pixelify-orange/20">
               <CardContent className="p-8 text-center">
@@ -100,6 +109,28 @@ const ServicesSection = () => {
           ))}
         </div>
 
+        {/* What We Do Section */}
+        <div className="animate-fade-in mb-20">
+          <h3 className="text-3xl font-bold mb-12 text-pixelify-black text-center">
+            Ce que nous faisons
+          </h3>
+          <div className="bg-pixelify-slate rounded-2xl p-8 shadow-lg border border-gray-100">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {detailedServices.map((service, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-50 hover:shadow-md transition-shadow duration-300">
+                  <h4 className="text-lg font-semibold mb-3 text-pixelify-black flex items-center">
+                    <div className="w-3 h-3 bg-pixelify-orange rounded-full mr-3 flex-shrink-0"></div>
+                    {service.title}
+                  </h4>
+                  <p className="text-pixelify-gray text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="text-center mt-16 animate-fade-in">
           <div className="bg-pixelify-orange/5 rounded-2xl p-8 max-w-4xl mx-auto border border-pixelify-orange/10">
@@ -114,7 +145,7 @@ const ServicesSection = () => {
                 const element = document.getElementById('contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Demander un devis gratuit
             </button>

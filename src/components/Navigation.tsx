@@ -1,12 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useAuth } from '@/contexts/AuthContext';
-import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user, isAdmin } = useAuth();
+  const { isAdmin } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +36,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/logo.svg"
               alt="Pixelify" 
-              className="h-15 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
@@ -67,40 +67,15 @@ const Navigation = () => {
               Portfolio
             </button>
             <button 
-              onClick={() => scrollToSection('testimonials')}
-              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-            >
-              Témoignages
-            </button>
-            <button 
               onClick={() => scrollToSection('contact')}
               className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
             >
               Contact
             </button>
             
-            {/* Admin/Auth Links */}
-            {isAdmin && (
-              <Link 
-                to="/admin"
-                className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-              >
-                Admin
-              </Link>
-            )}
-            
-            {!user && (
-              <Link 
-                to="/auth"
-                className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-              >
-                Connexion
-              </Link>
-            )}
-            
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105"
+              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full transition-colors duration-300 transform hover:scale-105"
             >
               Commencer un projet
             </Button>
@@ -152,36 +127,11 @@ const Navigation = () => {
                 Portfolio
               </button>
               <button 
-                onClick={() => scrollToSection('testimonials')}
-                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
-              >
-                Témoignages
-              </button>
-              <button 
                 onClick={() => scrollToSection('contact')}
                 className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Contact
               </button>
-              
-              {/* Admin/Auth Links */}
-              {isAdmin && (
-                <Link 
-                  to="/admin"
-                  className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-                >
-                  Admin
-                </Link>
-              )}
-              
-              {!user && (
-                <Link 
-                  to="/auth"
-                  className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-                >
-                  Connexion
-                </Link>
-              )}
               
               <div className="px-3 py-2">
                 <Button 
