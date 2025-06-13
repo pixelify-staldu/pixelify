@@ -42,8 +42,8 @@ const HeroSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-teal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-navy/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-gray/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-charcoal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -72,7 +72,7 @@ const HeroSection = () => {
                 Créons votre
               </span>
               <br />
-              <span className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pixelify-charcoal to-pixelify-gray bg-clip-text text-transparent">
                 présence digitale
               </span>
             </h1>
@@ -93,7 +93,7 @@ const HeroSection = () => {
                 onClick={scrollToPortfolio}
                 variant="outline"
                 size="lg"
-                className="border-2 border-pixelify-navy text-pixelify-navy hover:bg-pixelify-navy hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                className="border-2 border-pixelify-charcoal text-pixelify-charcoal hover:bg-pixelify-charcoal hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
               >
                 Voir nos réalisations
               </Button>
