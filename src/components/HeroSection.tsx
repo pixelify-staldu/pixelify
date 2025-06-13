@@ -72,7 +72,7 @@ const HeroSection = () => {
                 Créons votre
               </span>
               <br />
-              <span className="bg-gradient-to-r text-black to-pixelify-gray bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r text-pixelify-charcoal to-pixelify-gray bg-clip-text text-transparent">
                 présence digitale
               </span>
             </h1>
