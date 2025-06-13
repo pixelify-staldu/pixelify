@@ -74,7 +74,7 @@ const AboutSection = () => {
         </div>
 
         {/* Mission Section */}
-        <div className="mb-20 animate-fade-in">
+        <div className="mb-20 animate-fade-in w-4xl">
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
             <h3 className="text-3xl font-bold mb-6 text-pixelify-charcoal text-center">Notre Mission</h3>
             <p className="text-lg text-pixelify-charcoal leading-relaxed text-center max-w-4xl mx-auto">
