@@ -93,7 +93,7 @@ const HeroSection = () => {
                 onClick={scrollToPortfolio}
                 variant="outline"
                 size="lg"
-                className="border-2 border-pixelify-charcoal text-pixelify-charcoal hover:bg-pixelify-charcoal hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
               >
                 Voir nos réalisations
               </Button>
