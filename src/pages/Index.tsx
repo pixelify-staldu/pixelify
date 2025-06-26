@@ -36,7 +36,7 @@ const Index = () => {
       <ServicesSection />
       <PortfolioSection />
       <ContactSection />
-      <Footer />
+      <Footer siteInfo={siteInfo}/>
     </div>
   );
 };

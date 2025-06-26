@@ -4,7 +4,11 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Link } from 'react-router-dom';
 import { Settings, Mail, FileText, Shield } from 'lucide-react';
 
-const Footer = () => {
+type FooterProps = {
+  siteInfo: any;
+}
+
+const Footer = ({ siteInfo }: FooterProps) => {
   const currentYear = new Date().getFullYear();
   const { isAdmin, user } = useAuth();
 
@@ -30,9 +34,21 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <span className="text-3xl font-bold text-pixelify-orange">
-                Pixelify
-              </span>
+              <div className="mt-24 mb-8 flex justify-center relative">
+                <img 
+                  src={siteInfo.logo_url} 
+                  alt={siteInfo.company_name || "Logo"}
+                  className="h-24 w-auto"
+                  onError={(e) => {
+                    console.error('Image failed to load:', siteInfo.logo_url);
+                    console.error('Error event:', e);
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully:', siteInfo.logo_url);
+                  }}
+                />
+                <TopRightPixels className="-top-2 -right-8 opacity-40" />
+              </div>
               <div className="w-12 h-1 bg-pixelify-orange mt-2"></div>
             </div>
             <p className="text-gray-300 leading-relaxed">
