@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { supabase } from '@/integrations/supabase/client';
@@ -7,7 +6,7 @@ type HeroSectionProps = {
   siteInfo: any;
 }
 
-const HeroSection = ({siteInfo}): HeroSectionProps => {
+const HeroSection = ({ siteInfo }: HeroSectionProps) => {
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
