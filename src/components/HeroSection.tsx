@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { supabase } from '@/integrations/supabase/client';
+import { PixelGrid, PixelCluster } from './PixelDecoration';
 
 type HeroSectionProps = {
   siteInfo: any;
@@ -31,12 +33,18 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-charcoal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
+      {/* Pixel Decorations */}
+      <PixelGrid rows={4} cols={4} className="absolute top-32 left-16 opacity-20" />
+      <PixelCluster className="absolute top-40 right-20 opacity-30" />
+      <PixelGrid rows={3} cols={5} className="absolute bottom-32 left-32 opacity-25" />
+      <PixelCluster className="absolute bottom-40 right-16 opacity-20" />
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in">
             {/* Logo Integration */}
             {siteInfo.logo_url && (
-              <div className="mt-24 mb-8 flex justify-center">
+              <div className="mt-24 mb-8 flex justify-center relative">
                 <img 
                   src={siteInfo.logo_url} 
                   alt={siteInfo.company_name || "Logo"}
@@ -49,10 +57,13 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
                     console.log('Image loaded successfully:', siteInfo.logo_url);
                   }}
                 />
+                {/* Pixels autour du logo */}
+                <PixelGrid rows={2} cols={2} className="absolute -top-2 -left-2 opacity-40" />
+                <PixelGrid rows={2} cols={2} className="absolute -top-2 -right-2 opacity-40" />
               </div>
             )}
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight relative">
               <span className="text-pixelify-orange">
                 Votre site web
               </span>
@@ -60,6 +71,8 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               <span className="text-pixelify-charcoal">
                 sécurisé en Suisse
               </span>
+              {/* Pixels décoratifs dans le titre */}
+              <PixelCluster className="absolute -top-4 right-0 opacity-30" />
             </h1>
             
             <p className="text-xl md:text-2xl text-pixelify-charcoal mb-8 leading-relaxed">
@@ -90,9 +103,10 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               <Button 
                 onClick={scrollToContact}
                 size="lg"
-                className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative"
               >
                 Créer mon site suisse
+                <PixelGrid rows={2} cols={2} className="absolute -top-1 -right-1 opacity-60" />
               </Button>
               <Button 
                 onClick={scrollToPortfolio}
