@@ -36,7 +36,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
           <div className="animate-fade-in">
             {/* Logo Integration */}
             {siteInfo.logo_url && (
-              <div className="mb-8 flex justify-center">
+              <div className="mt-24 mb-8 flex justify-center">
                 <img 
                   src={siteInfo.logo_url} 
                   alt={siteInfo.company_name || "Logo"}
