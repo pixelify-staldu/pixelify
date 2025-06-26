@@ -43,7 +43,7 @@ const Navigation = ({siteInfo}: NavigationProps) => {
                 <img 
                   src={siteInfo.logo_url} 
                   alt={siteInfo.company_name || "Logo"} 
-                  className=""
+                  className="w-12 h-auto"
                   onError={(e) => {
                     console.error('Image failed to load:', siteInfo.logo_url);
                     console.error('Error event:', e);
