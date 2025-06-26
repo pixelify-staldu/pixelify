@@ -33,8 +33,7 @@ const Footer = ({ siteInfo }: FooterProps) => {
           
           {/* Company Info */}
           <div>
-            <div className="mb-4">
-              <div className="mt-24 mb-8 flex justify-center relative">
+              <div className="mb-8 flex justify-center relative">
                 <img 
                   src={siteInfo.logo_url} 
                   alt={siteInfo.company_name || "Logo"}
@@ -47,8 +46,6 @@ const Footer = ({ siteInfo }: FooterProps) => {
                     console.log('Image loaded successfully:', siteInfo.logo_url);
                   }}
                 />
-                <TopRightPixels className="-top-2 -right-8 opacity-40" />
-              </div>
               <div className="w-12 h-1 bg-pixelify-orange mt-2"></div>
             </div>
             <p className="text-gray-300 leading-relaxed">
