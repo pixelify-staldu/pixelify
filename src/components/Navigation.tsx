@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useAuth } from '@/contexts/AuthContext';
+type NavigationProps = {
+  siteInfo: any;
+}
 
-const Navigation = () => {
+const Navigation = ({siteInfo}: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAdmin } = useAuth();
