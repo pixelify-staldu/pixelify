@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { supabase } from '@/integrations/supabase/client';
-import { PixelGrid, PixelCluster } from './PixelDecoration';
+import { TopRightPixels } from './PixelDecoration';
 
 type HeroSectionProps = {
   siteInfo: any;
@@ -33,11 +33,8 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-charcoal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      {/* Pixel Decorations */}
-      <PixelGrid rows={4} cols={4} className="absolute top-32 left-16 opacity-20" />
-      <PixelCluster className="absolute top-40 right-20 opacity-30" />
-      <PixelGrid rows={3} cols={5} className="absolute bottom-32 left-32 opacity-25" />
-      <PixelCluster className="absolute bottom-40 right-16 opacity-20" />
+      {/* Pixels décoratifs dans les coins */}
+      <TopRightPixels className="top-8 right-8 opacity-30" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
@@ -57,9 +54,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
                     console.log('Image loaded successfully:', siteInfo.logo_url);
                   }}
                 />
-                {/* Pixels autour du logo */}
-                <PixelGrid rows={2} cols={2} className="absolute -top-2 -left-2 opacity-40" />
-                <PixelGrid rows={2} cols={2} className="absolute -top-2 -right-2 opacity-40" />
+                <TopRightPixels className="-top-2 -right-8 opacity-40" />
               </div>
             )}
             
@@ -69,19 +64,20 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               </span>
               <br />
               <span className="text-pixelify-charcoal">
-                sécurisé en Suisse
+                100% hébergé en Suisse
               </span>
-              {/* Pixels décoratifs dans le titre */}
-              <PixelCluster className="absolute -top-4 right-0 opacity-30" />
+              <TopRightPixels className="-top-4 right-0 opacity-30" />
             </h1>
             
             <p className="text-xl md:text-2xl text-pixelify-charcoal mb-8 leading-relaxed">
-              Création de sites internet professionnels avec toutes vos données hébergées en Suisse grâce à notre partenariat avec Infomaniak. Sécurité, confidentialité et performance garanties.
+              Création de sites internet professionnels avec hébergement exclusivement en territoire suisse. 
+              Vos données restent en Suisse, protégées par les lois helvétiques les plus strictes au monde.
             </p>
 
             {/* Swiss Trust Badge */}
             <div className="flex justify-center items-center gap-6 mb-8">
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-pixelify-orange/20">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-pixelify-orange/20 relative">
+                <TopRightPixels className="top-0 right-0 opacity-25" />
                 <div className="w-6 h-4 bg-red-600 relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-3 h-3 bg-white rounded-full flex items-center justify-center">
@@ -89,13 +85,14 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
                     </div>
                   </div>
                 </div>
-                <span className="text-sm font-medium text-pixelify-charcoal">Hébergé en Suisse</span>
+                <span className="text-sm font-medium text-pixelify-charcoal">100% Hébergé en Suisse</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-pixelify-orange/20">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-pixelify-orange/20 relative">
+                <TopRightPixels className="top-0 right-0 opacity-25" />
                 <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm font-medium text-pixelify-charcoal">100% Sécurisé</span>
+                <span className="text-sm font-medium text-pixelify-charcoal">Données Sécurisées</span>
               </div>
             </div>
 
@@ -106,7 +103,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
                 className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative"
               >
                 Créer mon site suisse
-                <PixelGrid rows={2} cols={2} className="absolute -top-1 -right-1 opacity-60" />
+                <TopRightPixels className="-top-1 -right-1 opacity-60" />
               </Button>
               <Button 
                 onClick={scrollToPortfolio}

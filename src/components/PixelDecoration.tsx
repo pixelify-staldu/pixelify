@@ -25,36 +25,13 @@ const PixelDecoration = ({ size = 'md', color = 'orange', className = '' }: Pixe
   );
 };
 
-export const PixelGrid = ({ rows = 3, cols = 3, className = '' }: { rows?: number; cols?: number; className?: string }) => {
-  const pixels = Array.from({ length: rows * cols }, (_, i) => i);
-  
+// Composant pour coin supérieur droit uniquement
+export const TopRightPixels = ({ className = '' }: { className?: string }) => {
   return (
-    <div 
-      className={`grid gap-1 ${className}`}
-      style={{ 
-        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-        gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`
-      }}
-    >
-      {pixels.map((index) => (
-        <PixelDecoration 
-          key={index}
-          size="sm"
-          color={index % 3 === 0 ? 'orange' : index % 2 === 0 ? 'gray' : 'charcoal'}
-        />
-      ))}
-    </div>
-  );
-};
-
-export const PixelCluster = ({ className = '' }: { className?: string }) => {
-  return (
-    <div className={`relative ${className}`}>
-      <PixelDecoration size="lg" color="orange" className="absolute top-0 left-0" />
-      <PixelDecoration size="md" color="gray" className="absolute top-1 left-4" />
-      <PixelDecoration size="sm" color="charcoal" className="absolute top-3 left-2" />
-      <PixelDecoration size="md" color="orange" className="absolute top-4 left-5" />
-      <PixelDecoration size="sm" color="gray" className="absolute top-2 left-6" />
+    <div className={`absolute top-2 right-2 flex gap-1 ${className}`}>
+      <PixelDecoration size="sm" color="orange" />
+      <PixelDecoration size="sm" color="gray" />
+      <PixelDecoration size="sm" color="charcoal" />
     </div>
   );
 };
