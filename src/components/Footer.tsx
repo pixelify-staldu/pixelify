@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Link } from 'react-router-dom';
 import { Settings, Mail, FileText, Shield } from 'lucide-react';
+import { TopRightPixels } from './PixelDecoration';
 
 type FooterProps = {
   siteInfo: any;
