@@ -57,35 +57,42 @@ const PortfolioSection = () => {
   }
 
   return (
-    <section id="portfolio" className="py-20 bg-pixelify-slate">
+    <section id="portfolio" className="py-20 bg-pixelify-slate relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-40 h-40 border border-pixelify-orange rounded-full animate-float"></div>
+        <div className="absolute bottom-40 right-10 w-60 h-60 border border-pixelify-gray rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 transform transition-all duration-700 hover:scale-105">
+            <span className="bg-gradient-to-r from-pixelify-orange to-pixelify-charcoal bg-clip-text text-transparent">
               Notre Portfolio
             </span>
           </h2>
-          <p className="text-xl text-pixelify-charcoal max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-pixelify-charcoal max-w-3xl mx-auto leading-relaxed transform transition-all duration-500 hover:text-pixelify-orange/80">
             Découvrez quelques-unes de nos réalisations récentes. Chaque projet reflète notre engagement 
             envers l'excellence et l'innovation.
           </p>
         </div>
 
-        {/* Filter Buttons */}
+        {/* Filter Buttons with enhanced animations */}
         {filters.length > 1 && (
           <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in">
-            {filters.map((filter) => (
+            {filters.map((filter, index) => (
               <Button
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
                 variant={activeFilter === filter.key ? "default" : "outline"}
                 className={`
-                  transition-all duration-300 rounded-full px-6 py-2
+                  transition-all duration-300 rounded-full px-6 py-2 animate-fade-in transform hover:rotate-1
                   ${activeFilter === filter.key 
-                    ? 'bg-gradient-to-r from-pixelify-navy to-pixelify-teal text-white shadow-lg transform scale-105' 
-                    : 'border-pixelify-navy text-pixelify-navy hover:bg-pixelify-navy hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                    ? 'bg-gradient-to-r from-pixelify-orange to-pixelify-charcoal text-white shadow-lg scale-105' 
+                    : 'border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white hover:scale-105 shadow-lg hover:shadow-xl'
                   }
                 `}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {filter.label}
               </Button>
@@ -93,10 +100,10 @@ const PortfolioSection = () => {
           </div>
         )}
 
-        {/* Projects Grid */}
+        {/* Projects Grid with staggered animations */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <Card key={project.id} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-0 shadow-lg overflow-hidden animate-fade-in">
+            <Card key={project.id} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-0 shadow-lg overflow-hidden animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image_url || "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"}
@@ -118,7 +125,7 @@ const PortfolioSection = () => {
                     <Button 
                       size="sm"
                       onClick={() => window.open(project.project_url, '_blank')}
-                      className="bg-white text-pixelify-navy hover:bg-pixelify-navy hover:text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                      className="bg-white text-pixelify-orange hover:bg-pixelify-orange hover:text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                     >
                       Voir le projet →
                     </Button>
@@ -127,11 +134,11 @@ const PortfolioSection = () => {
               </div>
               
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-pixelify-charcoal group-hover:text-pixelify-navy transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-3 text-pixelify-charcoal group-hover:text-pixelify-orange transition-colors duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-pixelify-charcoal-light mb-4 leading-relaxed">
+                <p className="text-pixelify-charcoal mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -140,7 +147,7 @@ const PortfolioSection = () => {
                     {project.technologies.map((tech: string, techIndex: number) => (
                       <span 
                         key={techIndex}
-                        className="bg-gradient-to-r from-pixelify-navy/10 to-pixelify-teal/10 text-pixelify-navy px-3 py-1 rounded-full text-xs font-medium"
+                        className="bg-gradient-to-r from-pixelify-orange/10 to-pixelify-charcoal/10 text-pixelify-orange px-3 py-1 rounded-full text-xs font-medium transform transition-all duration-300 hover:scale-105"
                       >
                         {tech}
                       </span>
@@ -155,18 +162,18 @@ const PortfolioSection = () => {
         {/* Empty State */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-pixelify-charcoal-light text-lg">Aucun projet trouvé pour cette catégorie.</p>
+            <p className="text-pixelify-charcoal text-lg">Aucun projet trouvé pour cette catégorie.</p>
           </div>
         )}
 
-        {/* CTA */}
+        {/* CTA with enhanced animation */}
         <div className="text-center mt-16 animate-fade-in">
           <p className="text-lg text-pixelify-charcoal mb-6">
             Vous souhaitez voir plus de nos réalisations ?
           </p>
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal text-white px-8 py-4 rounded-full font-semibold hover:from-pixelify-navy-dark hover:to-pixelify-teal-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="bg-gradient-to-r from-pixelify-orange to-pixelify-charcoal text-white px-8 py-4 rounded-full font-semibold hover:from-pixelify-orange-dark hover:to-pixelify-charcoal transition-all duration-300 transform hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-2xl"
           >
             Voir tous nos projets
           </Button>
