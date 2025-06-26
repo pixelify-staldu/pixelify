@@ -3,25 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { supabase } from '@/integrations/supabase/client';
 
-const HeroSection = () => {
-  const [siteInfo, setSiteInfo] = useState<any>({});
+type HeroSectionProps = {
+  siteInfo: any;
+}
 
-  useEffect(() => {
-    fetchSiteInfo();
-  }, []);
-
-  const fetchSiteInfo = async () => {
-    const { data } = await supabase
-      .from('site_info')
-      .select('*')
-      .single();
-    
-    if (data) {
-      console.log('Site info data:', data);
-      console.log('Logo URL:', data.logo_url);
-      setSiteInfo(data);
-    }
-  };
+const HeroSection = ({siteInfo}): HeroSectionProps => {
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
