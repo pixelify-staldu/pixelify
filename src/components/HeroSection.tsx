@@ -39,8 +39,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               <div className="mb-8 flex justify-center">
                 <img 
                   src={siteInfo.logo_url} 
-                  alt={siteInfo.company_name || "Logo"} 
-                  className="h-24 w-auto"
+                  alt={siteInfo.company_name || "Logo"}
                   onError={(e) => {
                     console.error('Image failed to load:', siteInfo.logo_url);
                     console.error('Error event:', e);
