@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { supabase } from '@/integrations/supabase/client';
-import { TopRightPixels } from './PixelDecoration';
+
 
 type HeroSectionProps = {
   siteInfo: any;
@@ -34,15 +34,15 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-5xl mx-auto">
           <div className="animate-fade-in">
-            {/* Logo Integration */}
+            {/* Logo Integration - Repositionné au-dessus du titre */}
             {siteInfo.logo_url && (
-              <div className="mt-24 mb-8 flex justify-center relative">
+              <div className="mb-6 flex justify-center relative">
                 <img 
                   src={siteInfo.logo_url} 
                   alt={siteInfo.company_name || "Logo"}
-                  className="h-24 w-auto"
+                  className="h-16 md:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
                   onError={(e) => {
                     console.error('Image failed to load:', siteInfo.logo_url);
                     console.error('Error event:', e);
@@ -54,7 +54,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               </div>
             )}
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight relative">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight relative">
               <span className="text-pixelify-charcoal">
                 Transformons{' '}
               </span>
@@ -66,7 +66,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-pixelify-charcoal mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-pixelify-charcoal mb-10 leading-relaxed max-w-3xl mx-auto">
               Nous concevons des sites web à votre image et vous suivons dans la digitalisation de votre activité.
             </p>
 
