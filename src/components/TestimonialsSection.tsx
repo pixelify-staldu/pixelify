@@ -1,157 +1,120 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { supabase } from '@/integrations/supabase/client';
+import { useSiteConfig } from '@/context/SiteConfigContext';
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    position: "CEO, TechStart",
+    quote: "Working with Pixelify was a game-changer for our business. They delivered a website that perfectly captures our brand and has significantly improved our online conversions.",
+    avatar: "https://i.pravatar.cc/150?img=1"
+  },
+  {
+    name: "Michael Chen",
+    position: "Marketing Director, GrowthCo",
+    quote: "The team at Pixelify went above and beyond our expectations. Our new website is not only beautiful but also performant and easy to manage.",
+    avatar: "https://i.pravatar.cc/150?img=8"
+  },
+  {
+    name: "Emily Rodriguez",
+    position: "Founder, StyleShop",
+    quote: "I couldn't be happier with the e-commerce solution that Pixelify built for my business. Sales have increased by 40% since our launch!",
+    avatar: "https://i.pravatar.cc/150?img=5"
+  }
+];
 
 const TestimonialsSection = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const { config } = useSiteConfig();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const testimonialRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    checkSectionVisibility();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    testimonialRefs.current.forEach((testimonial) => {
+      if (testimonial) {
+        observer.observe(testimonial);
+      }
+    });
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      testimonialRefs.current.forEach((testimonial) => {
+        if (testimonial) {
+          observer.unobserve(testimonial);
+        }
+      });
+    };
   }, []);
 
-  const checkSectionVisibility = async () => {
-    const { data } = await supabase
-      .from('site_sections')
-      .select('is_visible')
-      .eq('section_type', 'testimonials')
-      .single();
-    
-    if (data) {
-      setIsVisible(data.is_visible);
-    }
-  };
-
-  const testimonials = [
-    {
-      name: "Marie Dubois",
-      company: "CEO, TechStart",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b040?w=100&h=100&fit=crop&crop=face",
-      content: "Pixelify a transformé notre vision en une réalité digitale extraordinaire. Leur expertise technique et leur créativité ont dépassé toutes nos attentes.",
-      rating: 5
-    },
-    {
-      name: "Pierre Martin",
-      company: "Directeur, BioMarket",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      content: "Notre site e-commerce a vu ses ventes augmenter de 300% après la refonte par l'équipe Pixelify. Un travail professionnel et des résultats concrets.",
-      rating: 5
-    },
-    {
-      name: "Sophie Leroy",
-      company: "Architecte, Studio SL",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-      content: "Un accompagnement exceptionnel du début à la fin. Pixelify a su capter l'essence de notre travail et la traduire en un site web élégant et fonctionnel.",
-      rating: 5
-    },
-    {
-      name: "Thomas Chen",
-      company: "Fondateur, FitTracker",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-      content: "L'application mobile développée par Pixelify a révolutionné notre approche du fitness. Interface intuitive et performances excellentes.",
-      rating: 5
-    },
-    {
-      name: "Claire Moreau",
-      company: "Restauratrice, Le Gourmet",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
-      content: "Grâce au système de réservation en ligne créé par Pixelify, nous avons optimisé notre service et amélioré l'expérience de nos clients.",
-      rating: 5
-    },
-    {
-      name: "Nicolas Dupont",
-      company: "CTO, FinanceInno",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
-      content: "Sécurité, performance et design moderne : Pixelify a livré exactement ce dont nous avions besoin pour notre plateforme fintech.",
-      rating: 5
-    }
-  ];
-
-  const StarRating = ({ rating }: { rating: number }) => {
-    return (
-      <div className="flex space-x-1 mb-4">
-        {[...Array(5)].map((_, i) => (
-          <svg
-            key={i}
-            className={`w-5 h-5 ${i < rating ? 'text-pixelify-orange' : 'text-gray-300'}`}
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        ))}
-      </div>
-    );
-  };
-
-  if (!isVisible) {
-    return null;
-  }
+  if (!config.visibleSections.testimonials) return null;
 
   return (
-    <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-pixelify-orange/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-pixelify-orange/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-pixelify-orange">
-              Ce que disent nos clients
-            </span>
+    <section className="section-padding bg-gray-50" id="testimonials">
+      <div className="container mx-auto">
+        <div 
+          ref={sectionRef} 
+          className="transition-all duration-700 opacity-0 translate-y-10"
+        >
+          <h2 className="section-title text-center mb-16 mx-auto">
+            Client <span className="text-pixelify-orange">Testimonials</span>
+            <span className="block w-20 h-1 bg-pixelify-orange mx-auto mt-4"></span>
           </h2>
-          <p className="text-xl text-pixelify-gray max-w-3xl mx-auto leading-relaxed">
-            La satisfaction de nos clients est notre priorité. Découvrez leurs témoignages sur leur expérience 
-            de collaboration avec Pixelify.
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+            Don't just take our word for it. Here's what our clients have to say about working with us.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 shadow-lg animate-fade-in bg-white">
+            <Card 
+              key={index}
+              ref={(el) => (testimonialRefs.current[index] = el)}
+              className="transition-all duration-700 opacity-0 translate-y-10 bg-white border border-gray-100 hover:shadow-lg"
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               <CardContent className="p-8">
-                <StarRating rating={testimonial.rating} />
-                
-                <blockquote className="text-pixelify-gray leading-relaxed mb-6 italic">
-                  "{testimonial.content}"
-                </blockquote>
-                
+                <div className="mb-6">
+                  <svg className="h-8 w-8 text-pixelify-orange" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                </div>
+                <p className="text-gray-600 mb-6">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <img 
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-pixelify-orange/20"
-                  />
+                  <div className="flex-shrink-0 mr-4">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name} 
+                      className="h-12 w-12 rounded-full object-cover"
+                    />
+                  </div>
                   <div>
-                    <div className="font-bold text-pixelify-black">{testimonial.name}</div>
-                    <div className="text-pixelify-orange text-sm font-medium">{testimonial.company}</div>
+                    <h4 className="font-semibold">{testimonial.name}</h4>
+                    <p className="text-gray-500 text-sm">{testimonial.position}</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-20 grid md:grid-cols-4 gap-8 text-center animate-fade-in">
-          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-pixelify-orange mb-2">98%</div>
-            <div className="text-pixelify-gray font-medium">Clients satisfaits</div>
-          </div>
-          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-pixelify-orange mb-2">4.9/5</div>
-            <div className="text-pixelify-gray font-medium">Note moyenne</div>
-          </div>
-          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-pixelify-orange mb-2">100+</div>
-            <div className="text-pixelify-gray font-medium">Projets livrés</div>
-          </div>
-          <div className="bg-pixelify-orange/10 rounded-2xl p-6">
-            <div className="text-4xl font-bold text-pixelify-orange mb-2">24h</div>
-            <div className="text-pixelify-gray font-medium">Temps de réponse</div>
-          </div>
         </div>
       </div>
     </section>

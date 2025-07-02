@@ -1,182 +1,107 @@
 
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
+import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { supabase } from '@/integrations/supabase/client';
+import { ExternalLink } from "lucide-react";
+import { useSiteConfig } from '@/context/SiteConfigContext';
 
 const PortfolioSection = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [projects, setProjects] = useState<any[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [isVisible, setIsVisible] = useState(true);
+  const { config } = useSiteConfig();
+  const { portfolio } = config;
+  
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    fetchProjects();
-    checkSectionVisibility();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    projectRefs.current.forEach((project) => {
+      if (project) {
+        observer.observe(project);
+      }
+    });
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      projectRefs.current.forEach((project) => {
+        if (project) {
+          observer.unobserve(project);
+        }
+      });
+    };
   }, []);
 
-  const checkSectionVisibility = async () => {
-    const { data } = await supabase
-      .from('site_sections')
-      .select('is_visible')
-      .eq('section_type', 'portfolio')
-      .single();
-    
-    if (data) {
-      setIsVisible(data.is_visible);
-    }
-  };
+  // Reset projectRefs when portfolio items change
+  useEffect(() => {
+    projectRefs.current = projectRefs.current.slice(0, portfolio.length);
+  }, [portfolio.length]);
 
-  const fetchProjects = async () => {
-    const { data, error } = await supabase
-      .from('portfolio_projects')
-      .select('*')
-      .order('display_order');
-    
-    if (data && !error) {
-      console.log('Portfolio projects:', data);
-      setProjects(data);
-      
-      // Extract unique categories
-      const uniqueCategories = [...new Set(data.map(project => project.category))];
-      setCategories(uniqueCategories);
-    }
-  };
-
-  const filters = [
-    { key: 'all', label: 'Tous' },
-    ...categories.map(cat => ({ key: cat, label: cat }))
-  ];
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
-  if (!isVisible) {
-    return null;
-  }
+  if (!config.visibleSections.portfolio) return null;
 
   return (
-    <section id="portfolio" className="py-20 bg-pixelify-slate relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-40 h-40 border border-pixelify-orange rounded-full animate-float"></div>
-        <div className="absolute bottom-40 right-10 w-60 h-60 border border-pixelify-gray rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 transform transition-all duration-700 hover:scale-105">
-            <span className="bg-gradient-to-r from-pixelify-orange to-pixelify-charcoal bg-clip-text text-transparent">
-              Notre Portfolio
-            </span>
+    <section className="section-padding bg-white" id="portfolio">
+      <div className="container mx-auto">
+        <div 
+          ref={sectionRef}
+          className="transition-all duration-700 opacity-0 translate-y-10"
+        >
+          <h2 className="section-title text-center mb-16 mx-auto">
+            Notre <span className="text-pixelify-orange">Portfolio</span>
+            <span className="block w-20 h-1 bg-pixelify-orange mx-auto mt-4"></span>
           </h2>
-          <p className="text-xl text-pixelify-charcoal max-w-3xl mx-auto leading-relaxed transform transition-all duration-500 hover:text-pixelify-orange/80">
-            Découvrez quelques-unes de nos réalisations récentes. Chaque projet reflète notre engagement 
-            envers l'excellence et l'innovation.
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+            Découvrez nos dernières réalisations qui illustrent notre expertise en matière de conception et de développement de sites web.
           </p>
         </div>
 
-        {/* Filter Buttons with enhanced animations */}
-        {filters.length > 1 && (
-          <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in">
-            {filters.map((filter, index) => (
-              <Button
-                key={filter.key}
-                onClick={() => setActiveFilter(filter.key)}
-                variant={activeFilter === filter.key ? "default" : "outline"}
-                className={`
-                  transition-all duration-300 rounded-full px-6 py-2 animate-fade-in transform hover:rotate-1
-                  ${activeFilter === filter.key 
-                    ? 'bg-gradient-to-r from-pixelify-orange to-pixelify-charcoal text-white shadow-lg scale-105' 
-                    : 'border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white hover:scale-105 shadow-lg hover:shadow-xl'
-                  }
-                `}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {filter.label}
-              </Button>
-            ))}
-          </div>
-        )}
-
-        {/* Projects Grid with staggered animations */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card key={project.id} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-0 shadow-lg overflow-hidden animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="relative overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {portfolio.map((project, index) => (
+            <div
+              key={index}
+              ref={(el) => (projectRefs.current[index] = el)}
+              className="group relative overflow-hidden rounded-lg shadow-md transition-all duration-700 opacity-0 translate-y-10"
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="aspect-video overflow-hidden">
                 <img 
-                  src={project.image_url || "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    console.error('Project image failed to load:', project.image_url);
-                    console.error('Error event:', e);
-                    // Fallback to placeholder image
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop";
-                  }}
-                  onLoad={() => {
-                    console.log('Project image loaded successfully:', project.image_url);
-                  }}
+                  src={project.image}
+                  alt={project.title} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                {project.project_url && (
-                  <div className="absolute bottom-4 left-4 right-4 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                    <Button 
-                      size="sm"
-                      onClick={() => window.open(project.project_url, '_blank')}
-                      className="bg-white text-pixelify-orange hover:bg-pixelify-orange hover:text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                    >
-                      Voir le projet →
-                    </Button>
-                  </div>
-                )}
               </div>
-              
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-pixelify-charcoal group-hover:text-pixelify-orange transition-colors duration-300">
-                  {project.title}
-                </h3>
-                
-                <p className="text-pixelify-charcoal mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                {project.technologies && (
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech: string, techIndex: number) => (
-                      <span 
-                        key={techIndex}
-                        className="bg-gradient-to-r from-pixelify-orange/10 to-pixelify-charcoal/10 text-pixelify-orange px-3 py-1 rounded-full text-xs font-medium transform transition-all duration-300 hover:scale-105"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <span className="text-pixelify-orange text-sm font-medium mb-2">{project.category}</span>
+                <h3 className="text-white text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-white/80 mb-4 text-sm">{project.description}</p>
+                <a href={project.link} target="_blank">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-fit text-black hover:bg-gray-300 hover:text-black"
+                  >
+                    Voir le projet <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
+            </div>
           ))}
-        </div>
-
-        {/* Empty State */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-pixelify-charcoal text-lg">Aucun projet trouvé pour cette catégorie.</p>
-          </div>
-        )}
-
-        {/* CTA with enhanced animation */}
-        <div className="text-center mt-16 animate-fade-in">
-          <p className="text-lg text-pixelify-charcoal mb-6">
-            Vous souhaitez voir plus de nos réalisations ?
-          </p>
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-pixelify-orange to-pixelify-charcoal text-white px-8 py-4 rounded-full font-semibold hover:from-pixelify-orange-dark hover:to-pixelify-charcoal transition-all duration-300 transform hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-2xl"
-          >
-            Voir tous nos projets
-          </Button>
         </div>
       </div>
     </section>
