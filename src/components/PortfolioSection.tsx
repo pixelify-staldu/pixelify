@@ -57,15 +57,15 @@ const PortfolioSection = () => {
   }
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-20 bg-pixelify-slate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pixelify-blue to-pixelify-purple bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal bg-clip-text text-transparent">
               Notre Portfolio
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-pixelify-charcoal max-w-3xl mx-auto leading-relaxed">
             Découvrez quelques-unes de nos réalisations récentes. Chaque projet reflète notre engagement 
             envers l'excellence et l'innovation.
           </p>
@@ -82,8 +82,8 @@ const PortfolioSection = () => {
                 className={`
                   transition-all duration-300 rounded-full px-6 py-2
                   ${activeFilter === filter.key 
-                    ? 'bg-gradient-to-r from-pixelify-blue to-pixelify-purple text-white shadow-lg transform scale-105' 
-                    : 'border-pixelify-blue text-pixelify-blue hover:bg-pixelify-blue hover:text-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                    ? 'bg-gradient-to-r from-pixelify-navy to-pixelify-teal text-white shadow-lg transform scale-105' 
+                    : 'border-pixelify-navy text-pixelify-navy hover:bg-pixelify-navy hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
                   }
                 `}
               >
@@ -118,7 +118,7 @@ const PortfolioSection = () => {
                     <Button 
                       size="sm"
                       onClick={() => window.open(project.project_url, '_blank')}
-                      className="bg-white text-pixelify-blue hover:bg-pixelify-blue hover:black rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                      className="bg-white text-pixelify-navy hover:bg-pixelify-navy hover:text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                     >
                       Voir le projet →
                     </Button>
@@ -127,11 +127,11 @@ const PortfolioSection = () => {
               </div>
               
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-pixelify-blue transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-3 text-pixelify-charcoal group-hover:text-pixelify-navy transition-colors duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-pixelify-charcoal-light mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -140,7 +140,7 @@ const PortfolioSection = () => {
                     {project.technologies.map((tech: string, techIndex: number) => (
                       <span 
                         key={techIndex}
-                        className="bg-gradient-to-r from-pixelify-blue/10 to-pixelify-purple/10 text-pixelify-blue px-3 py-1 rounded-full text-xs font-medium"
+                        className="bg-gradient-to-r from-pixelify-navy/10 to-pixelify-teal/10 text-pixelify-navy px-3 py-1 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -155,18 +155,18 @@ const PortfolioSection = () => {
         {/* Empty State */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">Aucun projet trouvé pour cette catégorie.</p>
+            <p className="text-pixelify-charcoal-light text-lg">Aucun projet trouvé pour cette catégorie.</p>
           </div>
         )}
 
         {/* CTA */}
         <div className="text-center mt-16 animate-fade-in">
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-pixelify-charcoal mb-6">
             Vous souhaitez voir plus de nos réalisations ?
           </p>
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-pixelify-blue to-pixelify-purple text-white px-8 py-4 rounded-full font-semibold hover:from-pixelify-blue-dark hover:to-pixelify-purple transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal text-white px-8 py-4 rounded-full font-semibold hover:from-pixelify-navy-dark hover:to-pixelify-teal-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Voir tous nos projets
           </Button>

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,10 +67,17 @@ export default {
 					orange: '#ff6b35',
 					'orange-dark': '#e6521c',
 					'orange-light': '#ff8552',
-					black: '#1a1a1a',
-					gray: '#4a4a4a',
-					'gray-light': '#f8f8f8',
+					gray: '#6b7280',
+					'gray-light': '#9ca3af',
+					'gray-dark': '#4b5563',
+					black: '#1f2937',
+					'black-light': '#374151',
 					white: '#ffffff',
+					'white-dark': '#f9fafb',
+					charcoal: '#374151',
+					'charcoal-light': '#6b7280',
+					slate: '#f8fafc',
+					'slate-dark': '#e2e8f0'
 				}
 			},
 			borderRadius: {
