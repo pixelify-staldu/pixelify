@@ -1,79 +1,111 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { supabase } from '@/integrations/supabase/client';
 
 const HeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  
+  const [siteInfo, setSiteInfo] = useState<any>({});
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
-
-    return () => {
-      if (heroRef.current) {
-        observer.unobserve(heroRef.current);
-      }
-    };
+    fetchSiteInfo();
   }, []);
 
+  const fetchSiteInfo = async () => {
+    const { data } = await supabase
+      .from('site_info')
+      .select('*')
+      .single();
+    
+    if (data) {
+      console.log('Site info data:', data);
+      console.log('Logo URL:', data.logo_url);
+      setSiteInfo(data);
+    }
+  };
+
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToPortfolio = () => {
+    const element = document.getElementById('portfolio');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="min-h-screen flex items-center bg-white pt-16" id="hero">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between">
-          <div 
-            ref={heroRef}
-            className="w-full md:w-1/2 pt-10 md:pt-0 transition-all duration-1000 opacity-0 translate-y-10"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Transformons <span className="text-pixelify-orange">chaque idée</span> en succès
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-orange/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-orange/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="animate-fade-in">
+            {/* Logo Integration */}
+            {siteInfo.logo_url && (
+              <div className="mb-8 flex justify-center">
+                <img 
+                  src={siteInfo.logo_url} 
+                  alt={siteInfo.company_name || "Logo"} 
+                  className="h-20 w-auto"
+                  onError={(e) => {
+                    console.error('Image failed to load:', siteInfo.logo_url);
+                    console.error('Error event:', e);
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully:', siteInfo.logo_url);
+                  }}
+                />
+              </div>
+            )}
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-pixelify-orange">
+                Créons votre
+              </span>
+              <br />
+              <span className="text-pixelify-black">
+                présence digitale
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">
-              Nous concevons des sites web à votre image et vous suivons dans la digitalisation de votre activité.
+            
+            <p className="text-xl md:text-2xl text-pixelify-gray mb-8 leading-relaxed">
+              {siteInfo.description || "Agence web créative spécialisée dans le design moderne et le développement sur mesure. Nous transformons vos idées en expériences digitales exceptionnelles."}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact">
-                <Button
-                  className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-6 text-lg"
-                >
-                  Votre projet
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-              <a href="#portfolio">
-                <Button
-                  variant="outline"
-                  className="border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange/5 px-6 py-6 text-lg"
-                >
-                  Notre Portfolio
-                </Button>
-              </a>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <Button 
+                onClick={scrollToContact}
+                size="lg"
+                className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Démarrer votre projet
+              </Button>
+              <Button 
+                onClick={scrollToPortfolio}
+                variant="outline"
+                size="lg"
+                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+              >
+                Voir nos réalisations
+              </Button>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end animate-fade-in">
-            <div className="relative">
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-pixelify-orange-light rounded-full opacity-30 blur-xl"></div>
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-pixelify-orange rounded-full opacity-20 blur-2xl"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-                alt="Web design and development" 
-                className="w-full max-w-lg rounded-lg shadow-2xl relative z-10"
-              />
-            </div>
-          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-pixelify-gray rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-pixelify-gray rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

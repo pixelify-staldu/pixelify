@@ -1,32 +1,24 @@
 
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import PortfolioSection from '@/components/PortfolioSection';
-import AboutSection from '@/components/AboutSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
-import { useSiteConfig } from '@/context/SiteConfigContext';
-import { Button } from '@/components/ui/button';
-import { Settings } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
+import HeroSection from '../components/HeroSection';
+import AboutSection from '../components/AboutSection';
+import ServicesSection from '../components/ServicesSection';
+import PortfolioSection from '../components/PortfolioSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 
 const Index = () => {
-  const { config } = useSiteConfig();
-  const { visibleSections } = config;
-
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      
-      {visibleSections.hero && <HeroSection />}
-      {visibleSections.services && <ServicesSection />}
-      {visibleSections.portfolio && <PortfolioSection />}
-      {visibleSections.about && <AboutSection />}
-      {visibleSections.testimonials && <TestimonialsSection />}
-      {visibleSections.contact && <ContactSection />}
+    <div className="min-h-screen">
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <ContactSection />
       <Footer />
     </div>
   );
