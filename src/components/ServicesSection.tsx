@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { TopRightPixels } from './PixelDecoration';
+import { Button } from "@/components/ui/button";
 import {Globe, Monitor, ShoppingCart, Smartphone, Target} from "lucide-react";
 
 const ServicesSection = () => {
@@ -96,7 +96,6 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="py-20 bg-white relative">
-      <TopRightPixels className="top-8 right-8 opacity-10" />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-pixelify-black relative">
@@ -162,15 +161,15 @@ const ServicesSection = () => {
               Sites web sur mesure, UX optimisée, hébergement local et support de proximité :
               découvrez nos solutions clé en main pour développer votre activité en toute sérénité.
             </p>
-            <button
+            <Button
                 onClick={() => {
                   const element = document.getElementById('contact');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                size="lg"
             >
               Discuter de votre projet
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -79,13 +79,6 @@ const PortfolioSection = () => {
                                 key={filter.key}
                                 onClick={() => setActiveFilter(filter.key)}
                                 variant={activeFilter === filter.key ? "default" : "outline"}
-                                className={`
-                  transition-all duration-300 rounded-full px-6 py-2
-                  ${activeFilter === filter.key
-                                    ? 'bg-gradient-to-r from-pixelify-navy to-pixelify-teal text-white shadow-lg transform scale-105'
-                                    : 'border-pixelify-navy text-pixelify-navy hover:bg-pixelify-navy hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
-                                }
-                `}
                             >
                                 {filter.label}
                             </Button>
@@ -121,7 +114,7 @@ const PortfolioSection = () => {
                                         <Button
                                             size="sm"
                                             onClick={() => window.open(project.project_url, '_blank')}
-                                            className="bg-white text-pixelify-navy hover:bg-pixelify-navy hover:text-pixelify-orange transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                                            className="bg-white text-pixelify-orange hover:bg-pixelify-orange hover:text-white"
                                         >
                                             Voir le projet →
                                         </Button>
@@ -170,7 +163,7 @@ const PortfolioSection = () => {
                     </p>
                     <Button
                         size="lg"
-                        className="bg-gradient-to-r from-pixelify-navy to-pixelify-teal text-white px-8 py-4 rounded-full font-semibold hover:from-pixelify-navy-dark hover:to-pixelify-teal-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                        variant="outline"
                     >
                         Voir tous nos projets
                     </Button>

@@ -187,7 +187,7 @@ const ContactSection = () => {
                                     <div></div>
                                     <Button
                                         type="submit"
-                                        className="bg-pixelify-orange-dark hover:bg-pixelify-orange-light bg-gradient-to-r from-pixelify-blue to-pixelify-purple text-white py-3 rounded-lg font-semibold hover:from-pixelify-blue-dark hover:to-pixelify-purple transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                                        size="lg"
                                     >
                                         Envoyer ma demande
                                     </Button>
