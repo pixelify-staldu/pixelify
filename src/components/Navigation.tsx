@@ -65,30 +65,6 @@ const Navigation = ({siteInfo}: NavigationProps) => {
             >
               Accueil
             </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-            >
-              À propos
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-            >
-              Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')}
-              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-            >
-              Portfolio
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-            >
-              Contact
-            </button>
             
             <Button 
               onClick={() => scrollToSection('contact')}
@@ -124,30 +100,6 @@ const Navigation = ({siteInfo}: NavigationProps) => {
                 className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
               >
                 Accueil
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
-              >
-                À propos
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
-              >
-                Services
-              </button>
-              <button 
-                onClick={() => scrollToSection('portfolio')}
-                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
-              >
-                Portfolio
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
-              >
-                Contact
               </button>
               
               <div className="px-3 py-2">
