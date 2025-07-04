@@ -263,14 +263,27 @@ const PortfolioManager = () => {
   };
 
   const addProject = async () => {
+    // Validation des champs requis
+    if (!newProject.title || !newProject.category) {
+      toast({ 
+        title: 'Erreur', 
+        description: 'Veuillez remplir au moins le titre et la catégorie', 
+        variant: 'destructive' 
+      });
+      return;
+    }
+
     const { error } = await supabase
       .from('portfolio_projects')
       .insert([{
         ...newProject,
-        technologies: newProject.technologies.split(',').map(t => t.trim())
+        technologies: newProject.technologies 
+          ? newProject.technologies.split(',').map(t => t.trim()).filter(t => t.length > 0)
+          : []
       }]);
 
     if (error) {
+      console.error('Error adding project:', error);
       toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
     } else {
       toast({ title: 'Succès', description: 'Projet ajouté' });
