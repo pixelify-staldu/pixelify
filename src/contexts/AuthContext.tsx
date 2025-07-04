@@ -38,14 +38,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         
         if (session?.user) {
           // Check if user is admin
-          setTimeout(async () => {
+          try {
             const { data } = await supabase
               .from('admin_users')
               .select('id')
               .eq('user_id', session.user.id)
               .single();
             setIsAdmin(!!data);
-          }, 0);
+          } catch (error) {
+            console.error('Error checking admin status:', error);
+            setIsAdmin(false);
+          }
         } else {
           setIsAdmin(false);
         }
@@ -54,9 +57,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
 
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
+      
+      if (session?.user) {
+        try {
+          const { data } = await supabase
+            .from('admin_users')
+            .select('id')
+            .eq('user_id', session.user.id)
+            .single();
+          setIsAdmin(!!data);
+        } catch (error) {
+          console.error('Error checking admin status:', error);
+          setIsAdmin(false);
+        }
+      } else {
+        setIsAdmin(false);
+      }
       setLoading(false);
     });
 
