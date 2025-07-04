@@ -1,4 +1,8 @@
 project_id = "tkyilebhirvpuzsrtjuf"
 
+[auth]
+site_url = "https://pixelify.ch"
+additional_redirect_urls = ["https://pixelify.ch", "http://localhost:3000"]
+
 [functions.send-contact-email]
 verify_jwt = false
