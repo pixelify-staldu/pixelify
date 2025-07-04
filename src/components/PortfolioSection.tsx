@@ -60,10 +60,10 @@ const PortfolioSection = () => {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16 animate-fade-in">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                        <span className="text-pixelify-charcoal">
+                        <span className="text-pixelify-charcoal title">
                             Notre{' '}
                         </span>
-                        <span className="text-pixelify-orange">portfolio</span>
+                        <span className="text-pixelify-orange title">portfolio</span>
                     </h2>
                     <p className="text-xl text-pixelify-charcoal max-w-3xl mx-auto leading-relaxed">
                         Découvrez quelques-unes de nos réalisations récentes. Chaque projet reflète notre engagement

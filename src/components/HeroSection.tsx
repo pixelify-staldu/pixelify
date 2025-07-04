@@ -36,32 +36,22 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           <div className="animate-fade-in">
-            {/* Logo Integration - Repositionné au-dessus du titre */}
-            {siteInfo.logo_url && (
               <div className="mb-6 flex justify-center relative">
                 <img 
-                  src={siteInfo.logo_url} 
+                  src="/images/logo-big-transparent.svg"
                   alt={siteInfo.company_name || "Logo"}
-                  className="h-16 md:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
-                  onError={(e) => {
-                    console.error('Image failed to load:', siteInfo.logo_url);
-                    console.error('Error event:', e);
-                  }}
-                  onLoad={() => {
-                    console.log('Image loaded successfully:', siteInfo.logo_url);
-                  }}
+                  className="h-16 md:h-40 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
-            )}
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight relative">
-              <span className="text-pixelify-charcoal">
+              <span className="text-pixelify-charcoal title">
                 Transformons{' '}
               </span>
-              <span className="text-pixelify-orange">
+              <span className="text-pixelify-orange  title">
                  chaque idée{' '}
               </span>
-              <span className="text-pixelify-charcoal">
+              <span className="text-pixelify-charcoal  title">
                 en succès
               </span>
             </h1>

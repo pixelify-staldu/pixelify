@@ -67,10 +67,10 @@ const ContactSection = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16 animate-fade-in">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    <span className="text-pixelify-charcoal">
+                    <span className="text-pixelify-charcoal title">
                         Contactez-
                     </span>
-                    <span className="text-pixelify-orange">nous</span>
+                    <span className="text-pixelify-orange title">nous</span>
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Vous avez un projet en tête ? Parlons-en ! Nous sommes là pour vous accompagner

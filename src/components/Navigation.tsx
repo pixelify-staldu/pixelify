@@ -40,10 +40,10 @@ const Navigation = ({siteInfo}: NavigationProps) => {
             <div className="flex items-center">
               {siteInfo.logo_url && (
               <div className="my-auto flex justify-center">
-                <img 
-                  src={siteInfo.logo_url} 
+                <img
+                  src="/images/logo-big-transparent.svg"
                   alt={siteInfo.company_name || "Logo"} 
-                  className="h-12 w-auto"
+                  className="h-18 w-auto"
                   onError={(e) => {
                     console.error('Image failed to load:', siteInfo.logo_url);
                     console.error('Error event:', e);

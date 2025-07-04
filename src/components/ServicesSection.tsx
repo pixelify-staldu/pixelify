@@ -99,9 +99,9 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-pixelify-black relative">
-            <span className="text-pixelify-charcoal">
+            <span className="text-pixelify-charcoal title">
                 Nos{' '}
-              </span> <span className="text-pixelify-orange">services</span>
+              </span> <span className="text-pixelify-orange title">services</span>
           </h2>
           <p className="text-xl text-pixelify-gray max-w-3xl mx-auto leading-relaxed">
             Des solutions digitales sur-mesure, de la création de site web à l’hébergement local en Suisse,

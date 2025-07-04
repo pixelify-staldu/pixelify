@@ -35,16 +35,9 @@ const Footer = ({ siteInfo }: FooterProps) => {
           <div>
               <div className="mb-8 flex justify-center relative">
                 <img 
-                  src={siteInfo.logo_url} 
+                  src="/images/logo-white-big-transparent.png"
                   alt={siteInfo.company_name || "Logo"}
                   className="h-24 w-auto"
-                  onError={(e) => {
-                    console.error('Image failed to load:', siteInfo.logo_url);
-                    console.error('Error event:', e);
-                  }}
-                  onLoad={() => {
-                    console.log('Image loaded successfully:', siteInfo.logo_url);
-                  }}
                 />
               <div className="w-12 h-1 bg-pixelify-orange mt-2"></div>
             </div>
