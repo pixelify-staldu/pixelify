@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {Card, CardContent} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {useToast} from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const ContactSection = () => {
         message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
     const {toast} = useToast();
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -32,6 +35,15 @@ const ContactSection = () => {
             return;
         }
 
+        if (!captchaValue) {
+            toast({
+                title: "Erreur",
+                description: "Veuillez valider le captcha.",
+                variant: "destructive",
+            });
+            return;
+        }
+
         setIsSubmitting(true);
 
         try {
@@ -42,7 +54,8 @@ const ContactSection = () => {
                     company: formData.company,
                     phone: formData.phone,
                     service: formData.service,
-                    message: formData.message
+                    message: formData.message,
+                    captchaToken: captchaValue
                 }
             });
 
@@ -65,6 +78,8 @@ const ContactSection = () => {
                 budget: '',
                 message: ''
             });
+            setCaptchaValue(null);
+            recaptchaRef.current?.reset();
 
         } catch (error) {
             console.error('Error sending contact form:', error);
@@ -197,29 +212,38 @@ const ContactSection = () => {
                                         </div>
                                     </div>
 
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Décrivez votre projet *
-                                        </label>
-                                        <Textarea
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            placeholder="Parlez-nous de votre projet, vos objectifs, vos besoins..."
-                                            rows={5}
-                                            className="border-gray-300 focus:border-pixelify-blue focus:ring-pixelify-blue"
-                                            required
-                                        />
-                                    </div>
+                                     <div>
+                                         <label className="block text-sm font-medium text-gray-700 mb-2">
+                                             Décrivez votre projet *
+                                         </label>
+                                         <Textarea
+                                             name="message"
+                                             value={formData.message}
+                                             onChange={handleChange}
+                                             placeholder="Parlez-nous de votre projet, vos objectifs, vos besoins..."
+                                             rows={5}
+                                             className="border-gray-300 focus:border-pixelify-blue focus:ring-pixelify-blue"
+                                             required
+                                         />
+                                     </div>
 
-                                    <div></div>
-                                    <Button
-                                        type="submit"
-                                        size="lg"
-                                        disabled={isSubmitting}
-                                    >
-                                        {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
-                                    </Button>
+                                     <div className="flex justify-center">
+                                         <ReCAPTCHA
+                                             ref={recaptchaRef}
+                                             sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                                             onChange={(value) => setCaptchaValue(value)}
+                                             onExpired={() => setCaptchaValue(null)}
+                                         />
+                                     </div>
+
+                                     <Button
+                                         type="submit"
+                                         size="lg"
+                                         disabled={isSubmitting}
+                                         className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                                     >
+                                         {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
+                                     </Button>
                                 </form>
                             </div>
                         </CardContent>

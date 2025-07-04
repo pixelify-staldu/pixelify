@@ -15,6 +15,7 @@ interface ContactFormData {
   phone?: string
   service?: string
   message: string
+  captchaToken: string
 }
 
 serve(async (req) => {
@@ -27,6 +28,31 @@ serve(async (req) => {
     const formData: ContactFormData = await req.json()
 
     console.log('Received contact form data:', formData)
+
+    // Validation du captcha
+    const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe&response=${formData.captchaToken}`
+    })
+
+    const captchaResult = await captchaResponse.json()
+    
+    if (!captchaResult.success) {
+      console.error('Captcha validation failed:', captchaResult)
+      return new Response(
+        JSON.stringify({ 
+          error: 'Validation captcha échouée',
+          details: 'Veuillez valider le captcha correctement'
+        }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        },
+      )
+    }
 
     // Email de confirmation au client
     const clientEmailResponse = await resend.emails.send({
