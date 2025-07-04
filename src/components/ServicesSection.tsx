@@ -139,7 +139,7 @@ const ServicesSection = () => {
                   {service.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold mb-4 text-pixelify-black">
+                <h3 className="text-xl mb-4 text-pixelify-black">
                   {service.title}
                 </h3>
                 
