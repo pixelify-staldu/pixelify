@@ -7,6 +7,7 @@ import ServicesSection from '../components/ServicesSection';
 import PortfolioSection from '../components/PortfolioSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import ScrollReveal from '../components/ScrollReveal';
 
 import { supabase } from '@/integrations/supabase/client';
 
@@ -32,10 +33,18 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation siteInfo={siteInfo}/>
       <HeroSection siteInfo={siteInfo}/>
-      <AboutSection />
-      <ServicesSection />
-      <PortfolioSection />
-      <ContactSection />
+      <ScrollReveal delay={100}>
+        <AboutSection />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <ServicesSection />
+      </ScrollReveal>
+      <ScrollReveal delay={300}>
+        <PortfolioSection />
+      </ScrollReveal>
+      <ScrollReveal delay={400}>
+        <ContactSection />
+      </ScrollReveal>
       <Footer siteInfo={siteInfo}/>
     </div>
   );
