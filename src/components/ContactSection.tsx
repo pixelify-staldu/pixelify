@@ -4,6 +4,7 @@ import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {useToast} from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -15,9 +16,10 @@ const ContactSection = () => {
         budget: '',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const {toast} = useToast();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         // Validation simple
@@ -30,22 +32,50 @@ const ContactSection = () => {
             return;
         }
 
-        // Simulation d'envoi
-        toast({
-            title: "Message envoyé !",
-            description: "Nous vous répondrons dans les plus brefs délais.",
-        });
+        setIsSubmitting(true);
 
-        // Reset form
-        setFormData({
-            name: '',
-            email: '',
-            company: '',
-            phone: '',
-            service: '',
-            budget: '',
-            message: ''
-        });
+        try {
+            const { data, error } = await supabase.functions.invoke('send-contact-email', {
+                body: {
+                    name: formData.name,
+                    email: formData.email,
+                    company: formData.company,
+                    phone: formData.phone,
+                    service: formData.service,
+                    message: formData.message
+                }
+            });
+
+            if (error) {
+                throw error;
+            }
+
+            toast({
+                title: "Message envoyé !",
+                description: "Nous vous répondrons dans les plus brefs délais. Vous recevrez également un email de confirmation.",
+            });
+
+            // Reset form
+            setFormData({
+                name: '',
+                email: '',
+                company: '',
+                phone: '',
+                service: '',
+                budget: '',
+                message: ''
+            });
+
+        } catch (error) {
+            console.error('Error sending contact form:', error);
+            toast({
+                title: "Erreur",
+                description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -188,8 +218,9 @@ const ContactSection = () => {
                                     <Button
                                         type="submit"
                                         size="lg"
+                                        disabled={isSubmitting}
                                     >
-                                        Envoyer ma demande
+                                        {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
                                     </Button>
                                 </form>
                             </div>
