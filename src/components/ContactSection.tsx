@@ -189,12 +189,10 @@ const ContactSection = () => {
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pixelify-blue focus:border-pixelify-blue"
                                             >
                                                 <option value="">Sélectionnez un service</option>
-                                                <option value="design">Design Web & UX/UI</option>
-                                                <option value="development">Développement Web</option>
-                                                <option value="ecommerce">E-commerce</option>
-                                                <option value="mobile">Application Mobile</option>
-                                                <option value="seo">SEO & Marketing</option>
-                                                <option value="maintenance">Maintenance & Support</option>
+                                                <option value="design">Site internet</option>
+                                                <option value="ecommerce">Site E-commerce</option>
+                                                <option value="development">Application Web</option>
+                                                <option value="consulting">Consultation Stratégie Digitale</option>
                                             </select>
                                         </div>
                                     </div>

@@ -86,8 +86,8 @@ const ServicesSection = () => {
     //   ),
     // },
     {
-      title: "Consultation Stratégie Digitale",
-      description: "Accompagnement personnalisé pour définir votre stratégie digitale. Audit, recommandations et plan d'action adapté au marché suisse.",
+      title: "Consulting Stratégie Digitale",
+      description: "Accompagnement personnalisé pour définir votre stratégie digitale. Audit, recommandations et plan d'action adapté",
       icon: (
           <Target className="w-10 h-10 text-pixelify-orange" />
       ),
