@@ -46,13 +46,13 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight relative">
               <span className="text-pixelify-charcoal title">
-                Transformons{' '}
+                Vos projets{' '}
               </span>
               <span className="text-pixelify-orange  title">
-                 chaque idée{' '}
+                 pixelisés{' '}
               </span>
               <span className="text-pixelify-charcoal  title">
-                en succès
+                vers le succès
               </span>
             </h1>
             
