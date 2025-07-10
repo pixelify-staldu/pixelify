@@ -230,7 +230,7 @@ const ContactSection = () => {
                                      <div className="flex justify-center">
                                          <ReCAPTCHA
                                              ref={recaptchaRef}
-                                             sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                                             sitekey="6Le4u34rAAAAAA5y0wn761SIAqainfLhoshPeD-S"
                                              onChange={(value) => setCaptchaValue(value)}
                                              onExpired={() => setCaptchaValue(null)}
                                          />
