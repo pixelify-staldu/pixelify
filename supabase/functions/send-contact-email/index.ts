@@ -29,13 +29,13 @@ serve(async (req) => {
 
     console.log('Received contact form data:', formData)
 
-    // Validation du captcha
+    // Validation du captcha avec votre clé secrète
     const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `secret=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe&response=${formData.captchaToken}`
+      body: `secret=6Le4u34rAAAAAIE_eLAklRrGELPAh3TrBhN7oz1-&response=${formData.captchaToken}`
     })
 
     const captchaResult = await captchaResponse.json()
