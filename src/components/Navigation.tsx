@@ -37,7 +37,7 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
 
   const navItems = [
     { name: 'Accueil', href: '/', isRoute: true },
-    { name: 'À propos', href: '/about', isRoute: true },
+    /*{ name: 'À propos', href: '/about', isRoute: true },*/
   ];
 
   return (
