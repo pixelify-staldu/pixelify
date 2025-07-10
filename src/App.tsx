@@ -8,6 +8,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import Index from "./pages/Index";
+import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
@@ -39,6 +40,7 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/admin" element={<Admin />} />

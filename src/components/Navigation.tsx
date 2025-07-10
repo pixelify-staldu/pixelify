@@ -1,20 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
-import { useAuth } from '@/contexts/AuthContext';
-type NavigationProps = {
-  siteInfo: any;
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+
+interface NavigationProps {
+  siteInfo?: any;
 }
 
-const Navigation = ({siteInfo}: NavigationProps) => {
+const Navigation = ({ siteInfo }: NavigationProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isAdmin } = useAuth();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -22,94 +22,107 @@ const Navigation = ({siteInfo}: NavigationProps) => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home page and then scroll
+      window.location.href = `/#${sectionId}`;
     }
-    setIsMobileMenuOpen(false);
+    setIsOpen(false);
   };
 
+  const navItems = [
+    { name: 'Accueil', href: '/', isRoute: true },
+    { name: 'À propos', href: '/about', isRoute: true },
+    { name: 'Services', href: 'services', isRoute: false },
+    { name: 'Portfolio', href: '/portfolio', isRoute: true },
+    { name: 'Contact', href: 'contact', isRoute: false },
+  ];
+
   return (
-    <nav className={`fixed py-3 top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - only visible when scrolled */}
-          {isScrolled && (
-            <div className="flex items-center">
-              {siteInfo.logo_url && (
-              <div className="my-auto flex justify-center">
-                <img
-                  src="/images/logo-big-transparent.svg"
-                  alt={siteInfo.company_name || "Logo"} 
-                  className="h-18 w-auto"
-                  onError={(e) => {
-                    console.error('Image failed to load:', siteInfo.logo_url);
-                    console.error('Error event:', e);
-                  }}
-                  onLoad={() => {
-                    console.log('Image loaded successfully:', siteInfo.logo_url);
-                  }}
-                />
-              </div>
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            {siteInfo?.logo_url ? (
+              <img 
+                src={siteInfo.logo_url} 
+                alt={siteInfo.company_name || 'Pixelify'} 
+                className="h-8 w-auto"
+              />
+            ) : (
+              <span className="text-2xl font-bold text-pixelify-orange title">
+                {siteInfo?.company_name || 'Pixelify'}
+              </span>
             )}
-            </div>
-          )}
+          </Link>
 
-          {/* Desktop Menu */}
-          <div className={`hidden md:flex items-center space-x-8 ${!isScrolled ? 'ml-auto' : ''}`}>
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-pixelify-black hover:text-pixelify-orange transition-colors font-medium"
-            >
-              Accueil
-            </button>
-            
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full transition-colors duration-300 transform hover:scale-105"
-            >
-              Commencer un projet
-            </Button>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              item.isRoute ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium ${
+                    location.pathname === item.href ? 'text-pixelify-orange' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </button>
+              )
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden ml-auto">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-pixelify-black hover:text-pixelify-orange focus:outline-none"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+          <button
+            className="md:hidden text-pixelify-charcoal hover:text-pixelify-orange transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="block px-3 py-2 text-pixelify-black hover:text-pixelify-orange transition-colors font-medium w-full text-left"
-              >
-                Accueil
-              </button>
-              
-              <div className="px-3 py-2">
-                <Button 
-                  onClick={() => scrollToSection('contact')}
-                  className="w-full bg-pixelify-orange hover:bg-pixelify-orange-dark text-white"
-                >
-                  Commencer un projet
-                </Button>
-              </div>
+              {navItems.map((item) => (
+                item.isRoute ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`block px-3 py-2 text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium ${
+                      location.pathname === item.href ? 'text-pixelify-orange' : ''
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="block w-full text-left px-3 py-2 text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium"
+                  >
+                    {item.name}
+                  </button>
+                )
+              ))}
             </div>
           </div>
         )}
