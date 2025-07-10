@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 interface NavigationProps {
   siteInfo?: any;
@@ -21,15 +22,15 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToContact = () => {
     if (location.pathname === '/') {
-      const element = document.getElementById(sectionId);
+      const element = document.getElementById('contact');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
       // Navigate to home page and then scroll
-      window.location.href = `/#${sectionId}`;
+      window.location.href = '/#contact';
     }
     setIsOpen(false);
   };
@@ -37,9 +38,6 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
   const navItems = [
     { name: 'Accueil', href: '/', isRoute: true },
     { name: 'À propos', href: '/about', isRoute: true },
-    { name: 'Services', href: 'services', isRoute: false },
-    { name: 'Portfolio', href: '/portfolio', isRoute: true },
-    { name: 'Contact', href: 'contact', isRoute: false },
   ];
 
   return (
@@ -66,26 +64,22 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              item.isRoute ? (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium ${
-                    location.pathname === item.href ? 'text-pixelify-orange' : ''
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium"
-                >
-                  {item.name}
-                </button>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium ${
+                  location.pathname === item.href ? 'text-pixelify-orange' : ''
+                }`}
+              >
+                {item.name}
+              </Link>
             ))}
+            <Button 
+              onClick={scrollToContact}
+              className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              Commencer un projet
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,27 +96,25 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
           <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                item.isRoute ? (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`block px-3 py-2 text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium ${
-                      location.pathname === item.href ? 'text-pixelify-orange' : ''
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-3 py-2 text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium"
-                  >
-                    {item.name}
-                  </button>
-                )
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`block px-3 py-2 text-pixelify-charcoal hover:text-pixelify-orange transition-colors duration-200 font-medium ${
+                    location.pathname === item.href ? 'text-pixelify-orange' : ''
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
               ))}
+              <div className="px-3 py-2">
+                <Button 
+                  onClick={scrollToContact}
+                  className="w-full bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full font-semibold transition-all duration-300"
+                >
+                  Commencer un projet
+                </Button>
+              </div>
             </div>
           </div>
         )}
