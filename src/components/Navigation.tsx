@@ -52,10 +52,10 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
               <img 
                 src={siteInfo.logo_url} 
                 alt={siteInfo.company_name || 'Pixelify'} 
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             ) : (
-              <span className="text-2xl font-bold text-pixelify-orange title">
+              <span className="text-3xl font-bold text-pixelify-orange title">
                 {siteInfo?.company_name || 'Pixelify'}
               </span>
             )}
