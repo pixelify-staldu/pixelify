@@ -61,7 +61,7 @@ const About = () => {
                 <div>
                   <div className="flex items-center mb-8">
                     <Target className="w-8 h-8 mr-4 text-pixelify-orange" />
-                    <h2 className="text-3xl md:text-4xl font-bold text-pixelify-charcoal title">Vision – Raison d'être</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-pixelify-charcoal title">Vision</h2>
                   </div>
                   <Card className="bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 h-full">
                     <CardContent className="p-8">
