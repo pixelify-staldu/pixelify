@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Target, Compass, Heart, Anchor } from 'lucide-react';
+import { Mail, Target, Compass, Heart, Anchor, Zap, Shield, Eye, CheckCircle, Settings } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
 const About = () => {
@@ -51,103 +51,149 @@ const About = () => {
         </div>
       </section>
 
-      {/* Vision Section */}
+      {/* Vision & Mission Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <ScrollReveal delay={200}>
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center justify-center mb-8">
-                <Target className="w-10 h-10 mr-4 text-pixelify-orange" />
-                <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal title">Vision – Raison d'être</h2>
-              </div>
-              <Card className="bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
-                <CardContent className="p-12">
-                  <blockquote className="text-2xl text-pixelify-charcoal leading-relaxed italic text-center">
-                    "Nous sommes convaincus qu'un site web ne se limite pas à un design séduisant. 
-                    Il doit offrir une <strong className="text-pixelify-orange">expérience utilisateur intuitive</strong> capable 
-                    de générer des résultats concrets."
-                  </blockquote>
-                </CardContent>
-              </Card>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+            <div className="max-w-7xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-12">
+                {/* Vision */}
+                <div>
+                  <div className="flex items-center mb-8">
+                    <Target className="w-8 h-8 mr-4 text-pixelify-orange" />
+                    <h2 className="text-3xl md:text-4xl font-bold text-pixelify-charcoal title">Vision – Raison d'être</h2>
+                  </div>
+                  <Card className="bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 h-full">
+                    <CardContent className="p-8">
+                      <blockquote className="text-xl text-pixelify-charcoal leading-relaxed italic">
+                        "Nous sommes convaincus qu'un site web ne se limite pas à un design séduisant. 
+                        Il doit offrir une <strong className="text-pixelify-orange">expérience utilisateur intuitive</strong> capable 
+                        de générer des résultats concrets."
+                      </blockquote>
+                    </CardContent>
+                  </Card>
+                </div>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-br from-pixelify-slate to-gray-50">
-        <div className="container mx-auto px-4">
-          <ScrollReveal delay={300}>
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center justify-center mb-8">
-                <Compass className="w-10 h-10 mr-4 text-pixelify-orange" />
-                <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal title">Mission</h2>
+                {/* Mission */}
+                <div>
+                  <div className="flex items-center mb-8">
+                    <Compass className="w-8 h-8 mr-4 text-pixelify-orange" />
+                    <h2 className="text-3xl md:text-4xl font-bold text-pixelify-charcoal title">Mission</h2>
+                  </div>
+                  <Card className="bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 h-full">
+                    <CardContent className="p-8">
+                      <blockquote className="text-xl text-pixelify-charcoal leading-relaxed mb-6 italic">
+                        "Nous accompagnons les entreprises dans leur digitalisation grâce à une approche qui mêle 
+                        créativité, stratégie et savoir-faire suisse."
+                      </blockquote>
+                      <p className="text-lg text-pixelify-charcoal leading-relaxed">
+                        Notre objectif : développer des <strong className="text-pixelify-orange">solutions digitales performantes</strong>, 
+                        sur mesure, et alignées avec les enjeux réels de nos clients.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
-              <Card className="bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
-                <CardContent className="p-12">
-                  <blockquote className="text-2xl text-pixelify-charcoal leading-relaxed mb-8 italic text-center">
-                    "Nous accompagnons les entreprises dans leur digitalisation grâce à une approche qui mêle 
-                    créativité, stratégie et savoir-faire suisse."
-                  </blockquote>
-                  <p className="text-xl text-pixelify-charcoal leading-relaxed text-center">
-                    Notre objectif : développer des <strong className="text-pixelify-orange">solutions digitales performantes</strong>, 
-                    sur mesure, et alignées avec les enjeux réels de nos clients.
-                  </p>
-                </CardContent>
-              </Card>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Valeurs Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-br from-pixelify-slate to-gray-50">
         <div className="container mx-auto px-4">
-          <ScrollReveal delay={400}>
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center justify-center mb-12">
+          <ScrollReveal delay={300}>
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center justify-center mb-16">
                 <Heart className="w-10 h-10 mr-4 text-pixelify-orange" />
                 <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal title">Valeurs</h2>
               </div>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  { 
-                    title: "Simplicité", 
-                    desc: "Rendre le digital compréhensible et accessible",
-                    emoji: "🎯"
-                  },
-                  { 
-                    title: "Transparence", 
-                    desc: "Être clair dans les offres, les délais, les limites",
-                    emoji: "🔍"
-                  },
-                  { 
-                    title: "Fiabilité", 
-                    desc: "Être un partenaire de confiance sur le long terme",
-                    emoji: "🛡️"
-                  },
-                  { 
-                    title: "Exigence", 
-                    desc: "Proposer des solutions robustes, utiles et bien pensées",
-                    emoji: "⚡"
-                  },
-                  { 
-                    title: "Agilité", 
-                    desc: "S'adapter aux besoins concrets des clients",
-                    emoji: "🚀"
-                  }
-                ].map((valeur, index) => (
-                  <Card key={index} className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-                    <CardContent className="p-8 text-center">
-                      <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                        {valeur.emoji}
-                      </div>
-                      <h3 className="text-2xl font-bold text-pixelify-charcoal mb-4">{valeur.title}</h3>
-                      <p className="text-pixelify-charcoal leading-relaxed">{valeur.desc}</p>
-                    </CardContent>
-                  </Card>
-                ))}
+              <div className="space-y-8">
+                {/* Première ligne - décalée à droite */}
+                <div className="flex justify-end">
+                  <div className="w-full max-w-2xl">
+                    <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardContent className="p-8 flex items-center space-x-6">
+                        <Zap className="w-12 h-12 text-pixelify-orange flex-shrink-0" />
+                        <div>
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal mb-3 title">Simplicité</h3>
+                          <p className="text-pixelify-charcoal leading-relaxed text-lg">
+                            Rendre le digital compréhensible et accessible
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Deuxième ligne - décalée à gauche */}
+                <div className="flex justify-start">
+                  <div className="w-full max-w-2xl">
+                    <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardContent className="p-8 flex items-center space-x-6">
+                        <Eye className="w-12 h-12 text-pixelify-orange flex-shrink-0" />
+                        <div>
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal mb-3 title">Transparence</h3>
+                          <p className="text-pixelify-charcoal leading-relaxed text-lg">
+                            Être clair dans les offres, les délais, les limites
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Troisième ligne - centrée */}
+                <div className="flex justify-center">
+                  <div className="w-full max-w-2xl">
+                    <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardContent className="p-8 flex items-center space-x-6">
+                        <Shield className="w-12 h-12 text-pixelify-orange flex-shrink-0" />
+                        <div>
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal mb-3 title">Fiabilité</h3>
+                          <p className="text-pixelify-charcoal leading-relaxed text-lg">
+                            Être un partenaire de confiance sur le long terme
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Quatrième ligne - décalée à droite */}
+                <div className="flex justify-end">
+                  <div className="w-full max-w-2xl">
+                    <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardContent className="p-8 flex items-center space-x-6">
+                        <CheckCircle className="w-12 h-12 text-pixelify-orange flex-shrink-0" />
+                        <div>
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal mb-3 title">Exigence</h3>
+                          <p className="text-pixelify-charcoal leading-relaxed text-lg">
+                            Proposer des solutions robustes, utiles et bien pensées
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Cinquième ligne - décalée à gauche */}
+                <div className="flex justify-start">
+                  <div className="w-full max-w-2xl">
+                    <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardContent className="p-8 flex items-center space-x-6">
+                        <Settings className="w-12 h-12 text-pixelify-orange flex-shrink-0" />
+                        <div>
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal mb-3 title">Agilité</h3>
+                          <p className="text-pixelify-charcoal leading-relaxed text-lg">
+                            S'adapter aux besoins concrets des clients
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -155,9 +201,9 @@ const About = () => {
       </section>
 
       {/* Fondateur Section */}
-      <section className="py-20 bg-gradient-to-br from-pixelify-slate to-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <ScrollReveal delay={500}>
+          <ScrollReveal delay={400}>
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 title">
@@ -191,7 +237,7 @@ const About = () => {
                       </div>
                       
                       <div className="bg-pixelify-slate/10 p-6 rounded-xl">
-                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4">Mon parcours</h4>
+                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 title">Mon parcours</h4>
                         <ul className="space-y-3 text-lg text-pixelify-charcoal">
                           <li className="flex items-start">
                             <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
@@ -209,7 +255,7 @@ const About = () => {
                       </div>
                       
                       <div className="bg-pixelify-orange/10 p-6 rounded-xl">
-                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4">Pourquoi cette activité ?</h4>
+                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 title">Pourquoi cette activité ?</h4>
                         <p className="text-lg text-pixelify-charcoal leading-relaxed">
                           J'ai lancé mon activité car j'ai constaté un besoin fort : celui d'avoir un 
                           <strong className="text-pixelify-orange"> interlocuteur simple, humain et compétent</strong>, 
@@ -218,7 +264,7 @@ const About = () => {
                       </div>
 
                       <div>
-                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4">Ce qui m'anime</h4>
+                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 title">Ce qui m'anime</h4>
                         <ul className="space-y-3 text-lg text-pixelify-charcoal">
                           <li className="flex items-start">
                             <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
@@ -236,7 +282,7 @@ const About = () => {
                       </div>
 
                       <div className="bg-gradient-to-r from-pixelify-orange/10 to-pixelify-slate/10 p-6 rounded-xl">
-                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4">🧩 Mes expertises clés</h4>
+                        <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 title">🧩 Mes expertises clés</h4>
                         <div className="grid sm:grid-cols-2 gap-4">
                           {[
                             "Développement web (fullstack, sur mesure)",
@@ -263,7 +309,7 @@ const About = () => {
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark">
         <div className="container mx-auto px-4 text-center">
-          <ScrollReveal delay={600}>
+          <ScrollReveal delay={500}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 title">Prêt à Transformer Votre Vision ?</h2>
             <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
               Discutons de votre projet et découvrons ensemble comment Pixelify peut vous accompagner 
