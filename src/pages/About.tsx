@@ -113,7 +113,7 @@ const About = () => {
                 {/* Première colonne */}
                 <div className="space-y-8">
                   {/* Simplicité */}
-                  <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <Card className="bg-white shadow-xl border border-gray-100">
                     <CardContent className="p-8 flex items-start space-x-6">
                       <Zap className="w-12 h-12 text-pixelify-orange flex-shrink-0 mt-1" />
                       <div>
@@ -127,7 +127,7 @@ const About = () => {
 
                   {/* Transparence - avec offset */}
                   <div className="md:mt-16">
-                    <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <Card className="bg-white shadow-xl border border-gray-100">
                       <CardContent className="p-8 flex items-start space-x-6">
                         <Eye className="w-12 h-12 text-pixelify-orange flex-shrink-0 mt-1" />
                         <div>
@@ -141,7 +141,7 @@ const About = () => {
                   </div>
 
                   {/* Agilité */}
-                  <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <Card className="bg-white shadow-xl border border-gray-100">
                     <CardContent className="p-8 flex items-start space-x-6">
                       <Settings className="w-12 h-12 text-pixelify-orange flex-shrink-0 mt-1" />
                       <div>
@@ -157,7 +157,7 @@ const About = () => {
                 {/* Deuxième colonne - avec offset initial */}
                 <div className="space-y-8 md:mt-12">
                   {/* Fiabilité */}
-                  <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <Card className="bg-white shadow-xl border border-gray-100">
                     <CardContent className="p-8 flex items-start space-x-6">
                       <Shield className="w-12 h-12 text-pixelify-orange flex-shrink-0 mt-1" />
                       <div>
@@ -170,7 +170,7 @@ const About = () => {
                   </Card>
 
                   {/* Exigence */}
-                  <Card className="bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <Card className="bg-white shadow-xl border border-gray-100">
                     <CardContent className="p-8 flex items-start space-x-6">
                       <CheckCircle className="w-12 h-12 text-pixelify-orange flex-shrink-0 mt-1" />
                       <div>
@@ -200,86 +200,90 @@ const About = () => {
                 </h2>
               </div>
               
-              <Card className="bg-white shadow-lg border border-gray-100 max-w-4xl mx-auto">
+              <Card className="bg-white shadow-lg border border-gray-100">
                 <CardContent className="p-8">
-                  <div className="text-center mb-8">
-                    <div className="w-24 h-24 mx-auto mb-6 bg-pixelify-orange rounded-full flex items-center justify-center shadow-lg">
-                      <Anchor className="w-12 h-12 text-white" />
-                    </div>
-                    <h3 className="text-3xl font-bold text-pixelify-charcoal mb-2 font-display">Mathieu Stalder</h3>
-                    <p className="text-pixelify-orange font-semibold text-lg mb-4">Fondateur & CEO</p>
-                    <blockquote className="text-lg text-pixelify-charcoal italic font-medium bg-pixelify-slate/20 p-4 rounded-lg">
-                      "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
-                    </blockquote>
-                  </div>
-                  
-                  <div className="space-y-6 text-lg text-pixelify-charcoal leading-relaxed">
-                    <p>
-                      Navigateur dans l'âme, curieux de ce qui m'entoure et passionné par les systèmes bien pensés, 
-                      j'évolue dans le domaine de l'informatique depuis plus de <strong className="text-pixelify-orange">13 ans</strong>, 
-                      avec une spécialisation progressive dans le <strong className="text-pixelify-orange">développement web</strong> et 
-                      la <strong className="text-pixelify-orange">digitalisation des processus métiers</strong>.
-                    </p>
-                    
-                    <div className="bg-pixelify-slate/10 p-6 rounded-xl">
-                      <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 font-display">Mon parcours</h4>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span><strong>CFC en informatique</strong>, suivi d'une <strong>maturité professionnelle</strong></span>
-                        </li>
-                        <li className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span>Puis un <strong>Bachelor en informatique de gestion</strong></span>
-                        </li>
-                        <li className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span>Deux expériences marquantes : <strong>Abacus</strong> (ERP) et <strong>Schwab System</strong> (poste actuel)</span>
-                        </li>
-                      </ul>
+                  <div className="grid lg:grid-cols-2 gap-12 items-start">
+                    {/* Colonne gauche - Nom et citation */}
+                    <div className="text-center lg:text-left">
+                      <div className="w-24 h-24 mx-auto lg:mx-0 mb-6 bg-pixelify-orange rounded-full flex items-center justify-center shadow-lg">
+                        <Anchor className="w-12 h-12 text-white" />
+                      </div>
+                      <h3 className="text-3xl font-bold text-pixelify-charcoal mb-2 font-display">Mathieu Stalder</h3>
+                      <p className="text-pixelify-orange font-semibold text-lg mb-6">Fondateur & CEO</p>
+                      <blockquote className="text-lg text-pixelify-charcoal italic font-medium bg-pixelify-slate/20 p-6 rounded-lg">
+                        "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
+                      </blockquote>
                     </div>
                     
-                    <div className="bg-pixelify-orange/10 p-6 rounded-xl">
-                      <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 font-display">Pourquoi cette activité ?</h4>
+                    {/* Colonne droite - Contenu */}
+                    <div className="space-y-6 text-lg text-pixelify-charcoal leading-relaxed">
                       <p>
-                        J'ai lancé mon activité car j'ai constaté un besoin fort : celui d'avoir un 
-                        <strong className="text-pixelify-orange"> interlocuteur simple, humain et compétent</strong>, 
-                        capable de faire le lien entre les idées des entreprises et leur mise en œuvre digitale.
+                        Navigateur dans l'âme, curieux de ce qui m'entoure et passionné par les systèmes bien pensés, 
+                        j'évolue dans le domaine de l'informatique depuis plus de <strong className="text-pixelify-orange">13 ans</strong>, 
+                        avec une spécialisation progressive dans le <strong className="text-pixelify-orange">développement web</strong> et 
+                        la <strong className="text-pixelify-orange">digitalisation des processus métiers</strong>.
                       </p>
-                    </div>
+                      
+                      <div className="bg-pixelify-slate/10 p-6 rounded-xl">
+                        <h4 className="text-xl font-bold text-pixelify-charcoal mb-4 font-display">Mon parcours</h4>
+                        <ul className="space-y-3 text-base">
+                          <li className="flex items-start">
+                            <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                            <span><strong>CFC en informatique</strong>, suivi d'une <strong>maturité professionnelle</strong></span>
+                          </li>
+                          <li className="flex items-start">
+                            <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                            <span>Puis un <strong>Bachelor en informatique de gestion</strong></span>
+                          </li>
+                          <li className="flex items-start">
+                            <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                            <span>Deux expériences marquantes : <strong>Abacus</strong> (ERP) et <strong>Schwab System</strong> (poste actuel)</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-pixelify-orange/10 p-6 rounded-xl">
+                        <h4 className="text-xl font-bold text-pixelify-charcoal mb-4 font-display">Pourquoi cette activité ?</h4>
+                        <p className="text-base">
+                          J'ai lancé mon activité car j'ai constaté un besoin fort : celui d'avoir un 
+                          <strong className="text-pixelify-orange"> interlocuteur simple, humain et compétent</strong>, 
+                          capable de faire le lien entre les idées des entreprises et leur mise en œuvre digitale.
+                        </p>
+                      </div>
 
-                    <div>
-                      <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 font-display">Ce qui m'anime</h4>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span>Créer des <strong className="text-pixelify-orange">ponts entre les outils</strong> (et entre les gens)</span>
-                        </li>
-                        <li className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span><strong className="text-pixelify-orange">Penser les choses dans leur globalité</strong> avant de les construire</span>
-                        </li>
-                        <li className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span>Aider des projets à voir le jour grâce à une <strong className="text-pixelify-orange">approche accessible</strong>, pragmatique, mais exigeante</span>
-                        </li>
-                      </ul>
-                    </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-pixelify-charcoal mb-4 font-display">Ce qui m'anime</h4>
+                        <ul className="space-y-3 text-base">
+                          <li className="flex items-start">
+                            <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                            <span>Créer des <strong className="text-pixelify-orange">ponts entre les outils</strong> (et entre les gens)</span>
+                          </li>
+                          <li className="flex items-start">
+                            <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                            <span><strong className="text-pixelify-orange">Penser les choses dans leur globalité</strong> avant de les construire</span>
+                          </li>
+                          <li className="flex items-start">
+                            <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                            <span>Aider des projets à voir le jour grâce à une <strong className="text-pixelify-orange">approche accessible</strong>, pragmatique, mais exigeante</span>
+                          </li>
+                        </ul>
+                      </div>
 
-                    <div className="bg-pixelify-slate/10 p-6 rounded-xl">
-                      <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 font-display">🧩 Mes expertises clés</h4>
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        {[
-                          "Développement web (fullstack, sur mesure)",
-                          "Automatisation de processus internes",
-                          "Compréhension stratégique des besoins métiers",
-                          "Conseil digital orienté efficacité"
-                        ].map((expertise, index) => (
-                          <div key={index} className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                            <div className="w-2 h-2 bg-pixelify-orange rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                            <span className="text-pixelify-charcoal font-medium">{expertise}</span>
-                          </div>
-                        ))}
+                      <div className="bg-pixelify-slate/10 p-6 rounded-xl">
+                        <h4 className="text-xl font-bold text-pixelify-charcoal mb-4 font-display">🧩 Mes expertises clés</h4>
+                        <div className="grid sm:grid-cols-1 gap-3">
+                          {[
+                            "Développement web (fullstack, sur mesure)",
+                            "Automatisation de processus internes",
+                            "Compréhension stratégique des besoins métiers",
+                            "Conseil digital orienté efficacité"
+                          ].map((expertise, index) => (
+                            <div key={index} className="flex items-start bg-white p-3 rounded-lg shadow-sm">
+                              <div className="w-2 h-2 bg-pixelify-orange rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                              <span className="text-pixelify-charcoal font-medium text-sm">{expertise}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -291,7 +295,7 @@ const About = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-pixelify-slate/30">
+      <section className="py-20 bg-pixelify-slate/20">
         <div className="container mx-auto px-4 text-center">
           <ScrollReveal delay={500}>
             <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal mb-8 font-display">Prêt à Transformer Votre Vision ?</h2>
