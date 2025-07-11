@@ -91,7 +91,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Valeurs - Format Timeline coloré */}
+      {/* Valeurs - Format Timeline coloré avec couleurs uniformes */}
       <section className="py-20 bg-gradient-to-br from-pixelify-orange/5 to-pixelify-slate/50">
         <div className="container mx-auto px-4">
           <ScrollReveal delay={300}>
@@ -104,7 +104,7 @@ const About = () => {
                 <p className="text-xl text-pixelify-charcoal-light mt-4">Les principes qui guident notre travail</p>
               </div>
               
-              {/* Timeline des valeurs */}
+              {/* Timeline des valeurs avec couleurs uniformes */}
               <div className="relative">
                 {/* Ligne centrale */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-pixelify-orange to-pixelify-orange/30 rounded-full hidden md:block"></div>
@@ -132,7 +132,7 @@ const About = () => {
                     <div className="md:w-1/2 md:pr-12"></div>
                     <div className="hidden md:block w-6 h-6 bg-pixelify-orange rounded-full border-4 border-white shadow-lg z-10"></div>
                     <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 text-center md:text-left">
-                      <div className="bg-gradient-to-l from-pixelify-charcoal to-pixelify-charcoal-light text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-gradient-to-l from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
                         <div className="flex items-center justify-center md:justify-start mb-4">
                           <Shield className="w-8 h-8 mr-3" />
                           <h3 className="text-2xl font-bold font-display">Fiabilité</h3>
@@ -147,12 +147,12 @@ const About = () => {
                   {/* Transparence */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                      <div className="bg-gradient-to-r from-pixelify-slate to-pixelify-slate-dark text-pixelify-charcoal p-8 rounded-2xl shadow-xl border-2 border-pixelify-orange/20">
+                      <div className="bg-gradient-to-r from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
                         <div className="flex items-center justify-center md:justify-end mb-4">
-                          <Eye className="w-8 h-8 mr-3 text-pixelify-orange" />
+                          <Eye className="w-8 h-8 mr-3" />
                           <h3 className="text-2xl font-bold font-display">Transparence</h3>
                         </div>
-                        <p className="text-lg">
+                        <p className="text-lg opacity-95">
                           Être clair dans nos offres, délais et limites
                         </p>
                       </div>
@@ -166,7 +166,7 @@ const About = () => {
                     <div className="md:w-1/2 md:pr-12"></div>
                     <div className="hidden md:block w-6 h-6 bg-pixelify-orange rounded-full border-4 border-white shadow-lg z-10"></div>
                     <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 text-center md:text-left">
-                      <div className="bg-gradient-to-l from-green-500 to-green-600 text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-gradient-to-l from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
                         <div className="flex items-center justify-center md:justify-start mb-4">
                           <CheckCircle className="w-8 h-8 mr-3" />
                           <h3 className="text-2xl font-bold font-display">Exigence</h3>
@@ -181,7 +181,7 @@ const About = () => {
                   {/* Agilité */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-gradient-to-r from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
                         <div className="flex items-center justify-center md:justify-end mb-4">
                           <Settings className="w-8 h-8 mr-3" />
                           <h3 className="text-2xl font-bold font-display">Agilité</h3>
@@ -201,115 +201,68 @@ const About = () => {
         </div>
       </section>
 
-      {/* Fondateur - Format Magazine/Interview */}
-      <section className="py-20 bg-white">
+      {/* Fondateur - Format Card compacte */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <ScrollReveal delay={400}>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
-                  <span className="text-pixelify-charcoal">Rencontrez le </span>
-                  <span className="text-pixelify-orange">fondateur</span>
-                </h2>
-              </div>
-              
-              <div className="grid lg:grid-cols-5 gap-12 items-start">
-                {/* Colonne gauche - Identité et citation */}
-                <div className="lg:col-span-2 text-center lg:text-left">
-                  <div className="sticky top-8">
-                    <div className="w-32 h-32 mx-auto lg:mx-0 mb-8 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-full flex items-center justify-center shadow-2xl">
-                      <Anchor className="w-16 h-16 text-white" />
+            <div className="max-w-4xl mx-auto">
+              <Card className="bg-gradient-to-br from-pixelify-slate to-white shadow-2xl border-pixelify-orange/20 border-2">
+                <CardContent className="p-8">
+                  <div className="flex flex-col lg:flex-row items-start gap-8">
+                    {/* Colonne gauche - Identité */}
+                    <div className="lg:w-1/3 text-center lg:text-left">
+                      <div className="w-24 h-24 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-full flex items-center justify-center shadow-xl">
+                        <Anchor className="w-12 h-12 text-white" />
+                      </div>
+                      <h3 className="text-3xl font-bold text-pixelify-charcoal mb-2 title">Mathieu Stalder</h3>
+                      <p className="text-pixelify-orange font-semibold text-lg mb-6">Fondateur & CEO</p>
+                      
+                      {/* Citation mise en avant */}
+                      <div className="bg-pixelify-orange/10 p-4 rounded-xl relative">
+                        <Quote className="w-8 h-8 text-pixelify-orange/30 absolute top-2 left-2" />
+                        <blockquote className="text-lg text-pixelify-charcoal italic font-medium leading-relaxed pt-4">
+                          "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
+                        </blockquote>
+                      </div>
                     </div>
-                    <h3 className="text-4xl font-bold text-pixelify-charcoal mb-3 font-display">Mathieu Stalder</h3>
-                    <p className="text-pixelify-orange font-semibold text-xl mb-8">Fondateur & CEO</p>
                     
-                    {/* Citation mise en avant */}
-                    <div className="bg-gradient-to-br from-pixelify-slate to-pixelify-slate-dark p-8 rounded-2xl relative">
-                      <Quote className="w-12 h-12 text-pixelify-orange/30 absolute top-4 left-4" />
-                      <blockquote className="text-xl text-pixelify-charcoal italic font-medium leading-relaxed pt-6">
-                        "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
-                      </blockquote>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Colonne droite - Contenu interview */}
-                <div className="lg:col-span-3 space-y-8">
-                  {/* Introduction */}
-                  <div className="prose prose-lg max-w-none">
-                    <p className="text-xl text-pixelify-charcoal leading-relaxed">
-                      Navigateur dans l'âme, curieux de ce qui m'entoure et passionné par les systèmes bien pensés, 
-                      j'évolue dans le domaine de l'informatique depuis plus de <strong className="text-pixelify-orange">13 ans</strong>, 
-                      avec une spécialisation progressive dans le <strong className="text-pixelify-orange">développement web</strong> et 
-                      la <strong className="text-pixelify-orange">digitalisation des processus métiers</strong>.
-                    </p>
-                  </div>
-                  
-                  {/* Parcours - Format timeline mini */}
-                  <div className="bg-pixelify-slate/20 p-8 rounded-2xl">
-                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-6 font-display flex items-center">
-                      <div className="w-8 h-8 bg-pixelify-orange rounded-full mr-3"></div>
-                      Mon parcours
-                    </h4>
-                    <div className="space-y-4">
-                      {[
-                        "CFC en informatique, suivi d'une maturité professionnelle",
-                        "Puis un Bachelor en informatique de gestion", 
-                        "Deux expériences marquantes : Abacus (ERP) et Schwab System (poste actuel)"
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-start">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span className="text-lg text-pixelify-charcoal">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Motivation */}
-                  <div className="bg-gradient-to-r from-pixelify-orange/10 to-transparent p-8 rounded-2xl border-l-4 border-pixelify-orange">
-                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 font-display">Pourquoi cette activité ?</h4>
-                    <p className="text-lg text-pixelify-charcoal leading-relaxed">
-                      J'ai lancé mon activité car j'ai constaté un besoin fort : celui d'avoir un 
-                      <strong className="text-pixelify-orange"> interlocuteur simple, humain et compétent</strong>, 
-                      capable de faire le lien entre les idées des entreprises et leur mise en œuvre digitale.
-                    </p>
-                  </div>
+                    {/* Colonne droite - Contenu condensé */}
+                    <div className="lg:w-2/3 space-y-6">
+                      <div>
+                        <p className="text-lg text-pixelify-charcoal leading-relaxed mb-4">
+                          Navigateur dans l'âme et passionné par les systèmes bien pensés, j'évolue dans le domaine de l'informatique depuis plus de <strong className="text-pixelify-orange">13 ans</strong>, avec une spécialisation dans le <strong className="text-pixelify-orange">développement web</strong> et la <strong className="text-pixelify-orange">digitalisation des processus métiers</strong>.
+                        </p>
+                      </div>
+                      
+                      {/* Motivation condensée */}
+                      <div className="bg-pixelify-orange/5 p-6 rounded-xl border-l-4 border-pixelify-orange">
+                        <h4 className="text-xl font-bold text-pixelify-charcoal mb-3 title">Pourquoi cette activité ?</h4>
+                        <p className="text-pixelify-charcoal leading-relaxed">
+                          J'ai constaté un besoin fort : avoir un <strong className="text-pixelify-orange">interlocuteur simple, humain et compétent</strong>, 
+                          capable de faire le lien entre les idées des entreprises et leur mise en œuvre digitale.
+                        </p>
+                      </div>
 
-                  {/* Ce qui l'anime */}
-                  <div>
-                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-6 font-display">Ce qui m'anime</h4>
-                    <div className="grid md:grid-cols-1 gap-4">
-                      {[
-                        "Créer des ponts entre les outils (et entre les gens)",
-                        "Penser les choses dans leur globalité avant de les construire",
-                        "Aider des projets à voir le jour grâce à une approche accessible, pragmatique, mais exigeante"
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-start p-4 bg-white rounded-xl shadow-sm border border-pixelify-slate">
-                          <div className="w-3 h-3 bg-pixelify-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                          <span className="text-lg text-pixelify-charcoal"><strong className="text-pixelify-orange">{item.split(' ')[0]} {item.split(' ')[1]} {item.split(' ')[2]}</strong> {item.split(' ').slice(3).join(' ')}</span>
+                      {/* Expertises - Format badges */}
+                      <div>
+                        <h4 className="text-lg font-bold text-pixelify-charcoal mb-4 title">🧩 Mes expertises</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {[
+                            "Développement web",
+                            "Automatisation",
+                            "Stratégie digitale",
+                            "Conseil efficacité"
+                          ].map((expertise, index) => (
+                            <span key={index} className="bg-pixelify-orange text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
+                              {expertise}
+                            </span>
+                          ))}
                         </div>
-                      ))}
+                      </div>
                     </div>
                   </div>
-
-                  {/* Expertises - Format badges */}
-                  <div className="bg-pixelify-charcoal/5 p-8 rounded-2xl">
-                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-6 font-display">🧩 Mes expertises clés</h4>
-                    <div className="flex flex-wrap gap-3">
-                      {[
-                        "Développement web fullstack",
-                        "Automatisation de processus",
-                        "Stratégie digitale",
-                        "Conseil orienté efficacité"
-                      ].map((expertise, index) => (
-                        <span key={index} className="bg-pixelify-orange text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
-                          {expertise}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </ScrollReveal>
         </div>
