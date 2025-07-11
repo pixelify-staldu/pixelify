@@ -50,13 +50,13 @@ const About = () => {
         </div>
       </section>
 
-      {/* Vision & Mission - Format Bannière */}
+      {/* Vision & Mission - Format Bannière uniforme */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <ScrollReveal delay={200}>
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto space-y-20">
               {/* Vision - Format quote large */}
-              <div className="text-center mb-20">
+              <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/10 rounded-full mb-8">
                   <Target className="w-8 h-8 text-pixelify-orange" />
                 </div>
@@ -68,30 +68,28 @@ const About = () => {
                 </blockquote>
               </div>
 
-              {/* Mission - Format éditorial */}
-              <div className="bg-pixelify-slate/30 rounded-3xl p-8 md:p-12">
-                <div className="flex items-center mb-6">
-                  <Compass className="w-8 h-8 mr-4 text-pixelify-orange" />
-                  <h2 className="text-2xl font-bold text-pixelify-charcoal title">Notre Mission</h2>
+              {/* Mission - Format identique à la vision */}
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/10 rounded-full mb-8">
+                  <Compass className="w-8 h-8 text-pixelify-orange" />
                 </div>
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-xl text-pixelify-charcoal leading-relaxed mb-6">
-                    Nous accompagnons les entreprises dans leur digitalisation grâce à une approche qui mêle 
-                   <strong className="text-pixelify-orange"> créativité, stratégie et savoir-faire suisse</strong>.
-                  </p>
-                  <p className="text-lg text-pixelify-charcoal-light leading-relaxed">
-                    Notre objectif : développer des <strong className="text-pixelify-orange">solutions digitales performantes</strong>, 
-                    sur mesure, et alignées avec les enjeux réels de nos clients.
-                  </p>
-                </div>
+                <h2 className="text-2xl font-bold text-pixelify-charcoal mb-8 title">Notre Mission</h2>
+                <blockquote className="text-2xl md:text-3xl text-pixelify-charcoal leading-relaxed font-light italic max-w-4xl mx-auto">
+                  "Accompagner les entreprises dans leur digitalisation grâce à une approche qui mêle 
+                  <span className="text-pixelify-orange font-medium"> créativité, stratégie et savoir-faire suisse</span>."
+                </blockquote>
+                <p className="text-lg text-pixelify-charcoal-light mt-6 max-w-3xl mx-auto">
+                  Notre objectif : développer des <strong className="text-pixelify-orange">solutions digitales performantes</strong>, 
+                  sur mesure, et alignées avec les enjeux réels de nos clients.
+                </p>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Valeurs - Format Timeline coloré avec couleurs uniformes */}
-      <section className="py-20 bg-gradient-to-br from-pixelify-orange/5 to-pixelify-slate/50">
+      {/* Valeurs - Format Timeline avec fond blanc */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <ScrollReveal delay={300}>
             <div className="max-w-6xl mx-auto">
@@ -103,7 +101,7 @@ const About = () => {
                 <p className="text-xl text-pixelify-charcoal-light mt-4">Les principes qui guident notre travail</p>
               </div>
               
-              {/* Timeline des valeurs avec couleurs uniformes */}
+              {/* Timeline des valeurs avec fond blanc */}
               <div className="relative">
                 {/* Ligne centrale */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-pixelify-orange to-pixelify-orange/30 rounded-full hidden md:block"></div>
@@ -112,12 +110,12 @@ const About = () => {
                   {/* Simplicité */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                      <div className="bg-gradient-to-r from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-white border-2 border-pixelify-orange/20 p-8 rounded-2xl shadow-lg">
                         <div className="flex items-center justify-center md:justify-end mb-4">
-                          <Zap className="w-8 h-8 mr-3" />
-                          <h3 className="text-2xl font-bold font-display">Simplicité</h3>
+                          <Zap className="w-8 h-8 mr-3 text-pixelify-orange" />
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal font-display">Simplicité</h3>
                         </div>
-                        <p className="text-lg opacity-95">
+                        <p className="text-lg text-pixelify-charcoal">
                           Rendre le digital compréhensible et accessible
                         </p>
                       </div>
@@ -131,12 +129,12 @@ const About = () => {
                     <div className="md:w-1/2 md:pr-12"></div>
                     <div className="hidden md:block w-6 h-6 bg-pixelify-orange rounded-full border-4 border-white shadow-lg z-10"></div>
                     <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 text-center md:text-left">
-                      <div className="bg-gradient-to-l from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-white border-2 border-pixelify-orange/20 p-8 rounded-2xl shadow-lg">
                         <div className="flex items-center justify-center md:justify-start mb-4">
-                          <Shield className="w-8 h-8 mr-3" />
-                          <h3 className="text-2xl font-bold font-display">Fiabilité</h3>
+                          <Shield className="w-8 h-8 mr-3 text-pixelify-orange" />
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal font-display">Fiabilité</h3>
                         </div>
-                        <p className="text-lg opacity-95">
+                        <p className="text-lg text-pixelify-charcoal">
                           Être un partenaire de confiance sur le long terme
                         </p>
                       </div>
@@ -146,12 +144,12 @@ const About = () => {
                   {/* Transparence */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                      <div className="bg-gradient-to-r from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-white border-2 border-pixelify-orange/20 p-8 rounded-2xl shadow-lg">
                         <div className="flex items-center justify-center md:justify-end mb-4">
-                          <Eye className="w-8 h-8 mr-3" />
-                          <h3 className="text-2xl font-bold font-display">Transparence</h3>
+                          <Eye className="w-8 h-8 mr-3 text-pixelify-orange" />
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal font-display">Transparence</h3>
                         </div>
-                        <p className="text-lg opacity-95">
+                        <p className="text-lg text-pixelify-charcoal">
                           Être clair dans nos offres, délais et limites
                         </p>
                       </div>
@@ -165,12 +163,12 @@ const About = () => {
                     <div className="md:w-1/2 md:pr-12"></div>
                     <div className="hidden md:block w-6 h-6 bg-pixelify-orange rounded-full border-4 border-white shadow-lg z-10"></div>
                     <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 text-center md:text-left">
-                      <div className="bg-gradient-to-l from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-white border-2 border-pixelify-orange/20 p-8 rounded-2xl shadow-lg">
                         <div className="flex items-center justify-center md:justify-start mb-4">
-                          <CheckCircle className="w-8 h-8 mr-3" />
-                          <h3 className="text-2xl font-bold font-display">Exigence</h3>
+                          <CheckCircle className="w-8 h-8 mr-3 text-pixelify-orange" />
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal font-display">Exigence</h3>
                         </div>
-                        <p className="text-lg opacity-95">
+                        <p className="text-lg text-pixelify-charcoal">
                           Proposer des solutions robustes, utiles et bien pensées
                         </p>
                       </div>
@@ -180,12 +178,12 @@ const About = () => {
                   {/* Agilité */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                      <div className="bg-gradient-to-r from-pixelify-orange to-pixelify-orange-light text-white p-8 rounded-2xl shadow-xl">
+                      <div className="bg-white border-2 border-pixelify-orange/20 p-8 rounded-2xl shadow-lg">
                         <div className="flex items-center justify-center md:justify-end mb-4">
-                          <Settings className="w-8 h-8 mr-3" />
-                          <h3 className="text-2xl font-bold font-display">Agilité</h3>
+                          <Settings className="w-8 h-8 mr-3 text-pixelify-orange" />
+                          <h3 className="text-2xl font-bold text-pixelify-charcoal font-display">Agilité</h3>
                         </div>
-                        <p className="text-lg opacity-95">
+                        <p className="text-lg text-pixelify-charcoal">
                           S'adapter aux besoins concrets des clients
                         </p>
                       </div>
