@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -78,7 +77,7 @@ const About = () => {
                 <div className="prose prose-lg max-w-none">
                   <p className="text-xl text-pixelify-charcoal leading-relaxed mb-6">
                     Nous accompagnons les entreprises dans leur digitalisation grâce à une approche qui mêle 
-                    <strong className="text-pixelify-orange"> créativité, stratégie et savoir-faire suisse</strong>.
+                   <strong className="text-pixelify-orange"> créativité, stratégie et savoir-faire suisse</strong>.
                   </p>
                   <p className="text-lg text-pixelify-charcoal-light leading-relaxed">
                     Notre objectif : développer des <strong className="text-pixelify-orange">solutions digitales performantes</strong>, 
@@ -209,18 +208,18 @@ const About = () => {
               <Card className="bg-gradient-to-br from-pixelify-slate to-white shadow-2xl border-pixelify-orange/20 border-2">
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row items-start gap-8">
-                    {/* Colonne gauche - Identité */}
-                    <div className="lg:w-1/3 text-center lg:text-left">
-                      <div className="w-24 h-24 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-full flex items-center justify-center shadow-xl">
+                    {/* Colonne gauche - Identité centrée */}
+                    <div className="lg:w-1/3 text-center">
+                      <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-full flex items-center justify-center shadow-xl">
                         <Anchor className="w-12 h-12 text-white" />
                       </div>
                       <h3 className="text-3xl font-bold text-pixelify-charcoal mb-2 title">Mathieu Stalder</h3>
                       <p className="text-pixelify-orange font-semibold text-lg mb-6">Fondateur & CEO</p>
                       
-                      {/* Citation mise en avant */}
-                      <div className="bg-pixelify-orange/10 p-4 rounded-xl relative">
-                        <Quote className="w-8 h-8 text-pixelify-orange/30 absolute top-2 left-2" />
-                        <blockquote className="text-lg text-pixelify-charcoal italic font-medium leading-relaxed pt-4">
+                      {/* Citation plus discrète */}
+                      <div className="bg-pixelify-orange/5 p-3 rounded-lg relative">
+                        <Quote className="w-5 h-5 text-pixelify-orange/40 absolute top-1 left-1" />
+                        <blockquote className="text-sm text-pixelify-charcoal italic leading-relaxed pt-2">
                           "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
                         </blockquote>
                       </div>
@@ -268,25 +267,24 @@ const About = () => {
         </div>
       </section>
 
-      {/* Call to Action - Format moderne */}
-      <section className="py-20 bg-gradient-to-br from-pixelify-charcoal via-pixelify-charcoal-light to-pixelify-orange/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-pixelify-orange/10 to-transparent"></div>
+      {/* Call to Action - Format sobre */}
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
           <ScrollReveal delay={500}>
             <div className="max-w-4xl mx-auto">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-pixelify-orange rounded-full mb-8 shadow-2xl">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-pixelify-orange rounded-full mb-8 shadow-lg">
                 <Mail className="w-10 h-10 text-white" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 font-display">
+              <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal mb-8 font-display">
                 Prêt à Transformer Votre Vision ?
               </h2>
-              <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-pixelify-charcoal-light mb-12 max-w-3xl mx-auto leading-relaxed">
                 Discutons de votre projet et découvrons ensemble comment Pixelify peut vous accompagner 
                 vers le succès digital.
               </p>
               <Button 
                 onClick={scrollToContact}
-                className="bg-white text-pixelify-charcoal hover:bg-pixelify-slate text-lg px-12 py-6 h-auto rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                className="bg-pixelify-orange text-white hover:bg-pixelify-orange-dark text-lg px-12 py-6 h-auto rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
                 size="lg"
               >
                 <Mail className="w-6 h-6 mr-3" />
