@@ -244,22 +244,11 @@ const Portfolio = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-pixelify-orange/5 to-transparent rounded-full blur-xl"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-pixelify-orange/3 to-transparent rounded-full blur-lg"></div>
-        <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-br from-pixelify-orange/4 to-transparent rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-10 w-28 h-28 bg-gradient-to-br from-pixelify-orange/6 to-transparent rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-pixelify-orange/2 to-transparent rounded-full blur-3xl"></div>
-      </div>
-      
+    <div className="min-h-screen bg-white">
       <Navigation siteInfo={siteInfo} />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-white relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,theme(colors.pixelify.orange/8),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,theme(colors.pixelify.orange/5),transparent_60%)]"></div>
         
         <div className="container mx-auto px-4 relative">
           <ScrollReveal>
