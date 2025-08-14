@@ -120,7 +120,7 @@ const ContactSection = () => {
             {/* Charger reCAPTCHA v3 */}
             <script src="https://www.google.com/recaptcha/api.js?render=6Le4u34rAAAAAA5y0wn761SIAqainfLhoshPeD-S"></script>
             
-            <section id="contact" className="py-20 bg-gradient-to-br from-pixelify-blue-light/5 via-white to-pixelify-purple-light/5 relative overflow-hidden">
+            <section id="contact" className="py-20 bg-white pixel-overlay relative overflow-hidden">
                 {/* Background Elements */}
                 <div className="absolute inset-0">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-green-light/20 blur-3xl"></div>

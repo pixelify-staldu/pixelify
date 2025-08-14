@@ -95,7 +95,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-white via-pixelify-purple-light/5 to-pixelify-gray-100 relative">
+    <section id="services" className="py-20 bg-white pixel-overlay relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-pixelify-black relative">
@@ -153,23 +153,25 @@ const ServicesSection = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16 animate-fade-in">
-          <div className="bg-gradient-to-br from-pixelify-orange/10 via-pixelify-orange/5 to-white p-8 max-w-4xl mx-auto border border-pixelify-orange/20 shadow-modern-lg relative">
-            <h3 className="text-3xl font-bold mb-4 text-pixelify-black">
-              Boostez votre présence en ligne avec notre expertise digitale
-            </h3>
-            <p className="text-lg text-pixelify-gray mb-6">
-              Sites web sur mesure, UX optimisée, hébergement local et support de proximité :
-              découvrez nos solutions clé en main pour développer votre activité en toute sérénité.
-            </p>
-            <Button
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                size="lg"
-            >
-              Discuter de votre projet
-            </Button>
+          <div className="p-8 max-w-4xl mx-auto border border-pixelify-orange/20 shadow-modern-lg relative pixel-gradient-orange overflow-hidden">
+            <div className="relative z-10 bg-white/95 p-6 backdrop-blur-sm">
+              <h3 className="text-3xl font-bold mb-4 text-pixelify-black">
+                Boostez votre présence en ligne avec notre expertise digitale
+              </h3>
+              <p className="text-lg text-pixelify-gray mb-6">
+                Sites web sur mesure, UX optimisée, hébergement local et support de proximité :
+                découvrez nos solutions clé en main pour développer votre activité en toute sérénité.
+              </p>
+              <Button
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  size="lg"
+              >
+                Discuter de votre projet
+              </Button>
+            </div>
           </div>
         </div>
       </div>

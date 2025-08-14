@@ -32,7 +32,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-pixelify-navy/80 via-pixelify-teal/60 to-pixelify-blue-dark/70"></div>
+        <div className="absolute inset-0 pixel-gradient-orange opacity-30"></div>
       </div>
 
       {/* Animated Background Elements */}

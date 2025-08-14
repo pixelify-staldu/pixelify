@@ -56,7 +56,7 @@ const PortfolioSection = () => {
     }
 
     return (
-        <section id="portfolio" className="py-20 bg-gradient-to-br from-pixelify-gray-100 via-pixelify-green-light/5 to-white">
+        <section id="portfolio" className="py-20 bg-pixelify-gray-100 pixel-overlay">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16 animate-fade-in">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
