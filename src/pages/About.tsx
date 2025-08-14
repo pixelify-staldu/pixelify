@@ -198,68 +198,113 @@ const About = () => {
         </div>
       </section>
 
-      {/* Fondateur - Format Card compacte */}
-      <section className="py-16 bg-white">
+      {/* Fondateur - Design moderne et épuré */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <ScrollReveal delay={400}>
-            <div className="max-w-4xl mx-auto">
-              <Card className="bg-gradient-to-br from-pixelify-slate to-white shadow-2xl border-pixelify-orange/20 border-2">
-                <CardContent className="p-8">
-                  <div className="flex flex-col lg:flex-row items-start gap-8">
-                    {/* Colonne gauche - Identité centrée */}
-                    <div className="lg:w-1/3 text-center">
-                      <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-full flex items-center justify-center shadow-xl">
-                        <Anchor className="w-12 h-12 text-white" />
-                      </div>
-                      <h3 className="text-3xl font-bold text-pixelify-charcoal mb-2 title">Mathieu Stalder</h3>
-                      <p className="text-pixelify-orange font-semibold text-lg mb-6">Fondateur & CEO</p>
-                      
-                      {/* Citation plus discrète */}
-                      <div className="bg-pixelify-orange/5 p-3 rounded-lg relative">
-                        <Quote className="w-5 h-5 text-pixelify-orange/40 absolute top-1 left-1" />
-                        <blockquote className="text-sm text-pixelify-charcoal italic leading-relaxed pt-2">
-                          "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
-                        </blockquote>
-                      </div>
-                    </div>
-                    
-                    {/* Colonne droite - Contenu condensé */}
-                    <div className="lg:w-2/3 space-y-6">
-                      <div>
-                        <p className="text-lg text-pixelify-charcoal leading-relaxed mb-4">
-                          Navigateur dans l'âme et passionné par les systèmes bien pensés, j'évolue dans le domaine de l'informatique depuis plus de <strong className="text-pixelify-orange">13 ans</strong>, avec une spécialisation dans le <strong className="text-pixelify-orange">développement web</strong> et la <strong className="text-pixelify-orange">digitalisation des processus métiers</strong>.
-                        </p>
-                      </div>
-                      
-                      {/* Motivation condensée */}
-                      <div className="bg-pixelify-orange/5 p-6 rounded-xl border-l-4 border-pixelify-orange">
-                        <h4 className="text-xl font-bold text-pixelify-charcoal mb-3 title">Pourquoi cette activité ?</h4>
-                        <p className="text-pixelify-charcoal leading-relaxed">
-                          J'ai constaté un besoin fort : avoir un <strong className="text-pixelify-orange">interlocuteur simple, humain et compétent</strong>, 
-                          capable de faire le lien entre les idées des entreprises et leur mise en œuvre digitale.
-                        </p>
-                      </div>
+            {/* Header de section */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/10 rounded-full mb-6">
+                <Anchor className="w-8 h-8 text-pixelify-orange" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal mb-4 title">Le Fondateur</h2>
+              <p className="text-xl text-pixelify-charcoal-light">Passionné par la navigation et le digital</p>
+            </div>
 
-                      {/* Expertises - Format badges */}
-                      <div>
-                        <h4 className="text-lg font-bold text-pixelify-charcoal mb-4 title">🧩 Mes expertises</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {[
-                            "Développement web",
-                            "Automatisation",
-                            "Stratégie digitale",
-                            "Conseil efficacité"
-                          ].map((expertise, index) => (
-                            <span key={index} className="bg-pixelify-orange text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                              {expertise}
-                            </span>
-                          ))}
-                        </div>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* Colonne gauche - Profil */}
+                <div className="text-center lg:text-left">
+                  <div className="relative inline-block">
+                    <div className="w-48 h-48 mx-auto lg:mx-0 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                      <Anchor className="w-24 h-24 text-white" />
+                    </div>
+                    <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-pixelify-orange/20">
+                      <Quote className="w-8 h-8 text-pixelify-orange" />
+                    </div>
+                  </div>
+                  
+                  <div className="mt-8">
+                    <h3 className="text-4xl font-bold text-pixelify-charcoal mb-2 title">Mathieu Stalder</h3>
+                    <p className="text-pixelify-orange font-semibold text-xl mb-6">Fondateur & CEO de Pixelify</p>
+                    
+                    {/* Citation redesignée */}
+                    <div className="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-pixelify-orange max-w-md mx-auto lg:mx-0">
+                      <blockquote className="text-lg text-pixelify-charcoal italic leading-relaxed">
+                        "Comme en navigation, les grands caps se tracent d'abord avec des lignes simples."
+                      </blockquote>
+                    </div>
+
+                    {/* Badges d'expertise */}
+                    <div className="mt-8">
+                      <h4 className="text-lg font-bold text-pixelify-charcoal mb-4 title">Expertises</h4>
+                      <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                        {[
+                          "13+ ans d'expérience",
+                          "Développement web",
+                          "Automatisation",
+                          "Stratégie digitale"
+                        ].map((expertise, index) => (
+                          <span key={index} className="bg-gradient-to-r from-pixelify-orange to-pixelify-orange-dark text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-shadow">
+                            {expertise}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+
+                {/* Colonne droite - Contenu */}
+                <div className="space-y-8">
+                  {/* Présentation principale */}
+                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-pixelify-orange/10">
+                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 title flex items-center">
+                      <Settings className="w-6 h-6 mr-3 text-pixelify-orange" />
+                      Mon parcours
+                    </h4>
+                    <p className="text-lg text-pixelify-charcoal leading-relaxed">
+                      Navigateur dans l'âme et passionné par les systèmes bien pensés, j'évolue dans le domaine de l'informatique depuis plus de <strong className="text-pixelify-orange">13 ans</strong>, avec une spécialisation dans le <strong className="text-pixelify-orange">développement web</strong> et la <strong className="text-pixelify-orange">digitalisation des processus métiers</strong>.
+                    </p>
+                  </div>
+
+                  {/* Motivation */}
+                  <div className="bg-gradient-to-br from-pixelify-orange/5 to-pixelify-orange/10 p-8 rounded-2xl border border-pixelify-orange/20">
+                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-4 title flex items-center">
+                      <Target className="w-6 h-6 mr-3 text-pixelify-orange" />
+                      Ma mission
+                    </h4>
+                    <p className="text-lg text-pixelify-charcoal leading-relaxed">
+                      J'ai constaté un besoin fort : avoir un <strong className="text-pixelify-orange">interlocuteur simple, humain et compétent</strong>, capable de faire le lien entre les idées des entreprises et leur mise en œuvre digitale.
+                    </p>
+                  </div>
+
+                  {/* Valeurs personnelles */}
+                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-pixelify-orange/10">
+                    <h4 className="text-2xl font-bold text-pixelify-charcoal mb-6 title flex items-center">
+                      <Heart className="w-6 h-6 mr-3 text-pixelify-orange" />
+                      Ce qui me guide
+                    </h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-pixelify-orange rounded-full mr-3"></div>
+                        <span className="text-pixelify-charcoal">Simplicité</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-pixelify-orange rounded-full mr-3"></div>
+                        <span className="text-pixelify-charcoal">Transparence</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-pixelify-orange rounded-full mr-3"></div>
+                        <span className="text-pixelify-charcoal">Efficacité</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-pixelify-orange rounded-full mr-3"></div>
+                        <span className="text-pixelify-charcoal">Proximité</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
