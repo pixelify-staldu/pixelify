@@ -244,13 +244,22 @@ const Portfolio = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-pixelify-orange/5 to-transparent rounded-full blur-xl"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-pixelify-orange/3 to-transparent rounded-full blur-lg"></div>
+        <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-br from-pixelify-orange/4 to-transparent rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-gradient-to-br from-pixelify-orange/6 to-transparent rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-pixelify-orange/2 to-transparent rounded-full blur-3xl"></div>
+      </div>
+      
       <Navigation siteInfo={siteInfo} />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-pixelify-charcoal via-gray-800 to-pixelify-charcoal relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,theme(colors.pixelify.orange/20),transparent_70%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,theme(colors.blue.500/10),transparent_70%)]"></div>
+      <section className="pt-24 pb-16 bg-white relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,theme(colors.pixelify.orange/8),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,theme(colors.pixelify.orange/5),transparent_60%)]"></div>
         
         <div className="container mx-auto px-4 relative">
           <ScrollReveal>
@@ -259,17 +268,17 @@ const Portfolio = () => {
                 <Eye className="w-10 h-10 text-pixelify-orange" />
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white title">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-pixelify-charcoal title">
                 Notre 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pixelify-orange to-yellow-400"> Portfolio</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pixelify-orange to-pixelify-orange-dark"> Portfolio</span>
               </h1>
               
-              <p className="text-xl text-gray-300 leading-relaxed mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-pixelify-charcoal-light leading-relaxed mb-8 max-w-3xl mx-auto">
                 Découvrez notre expertise à travers une sélection de projets qui reflètent 
                 notre passion pour l'innovation et l'excellence technique.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-6 text-gray-300">
+              <div className="flex flex-wrap items-center justify-center gap-6 text-pixelify-charcoal-light">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-pixelify-orange rounded-full"></div>
                   <span>{projects.length} projets réalisés</span>
