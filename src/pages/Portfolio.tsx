@@ -418,40 +418,40 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-pixelify-charcoal to-gray-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,theme(colors.pixelify.orange/10),transparent_70%)]"></div>
-        
-        <div className="container mx-auto px-4 text-center relative">
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
           <ScrollReveal delay={400}>
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/20 rounded-full mb-8">
-                <Star className="w-8 h-8 text-pixelify-orange" />
-              </div>
-              
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 title">
-                Prêt à créer votre 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pixelify-orange to-yellow-400"> projet ?</span>
-              </h3>
-              
-              <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Chaque projet est unique. Parlons de vos besoins et créons ensemble quelque chose d'extraordinaire 
-                qui marquera votre présence digitale.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link to="/#contact">
-                  <Button size="lg" className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    <ExternalLink className="w-5 h-5 mr-3" />
-                    Démarrer un projet
-                  </Button>
-                </Link>
-                <Link to="/#services">
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-pixelify-charcoal px-8 py-4 text-lg transition-all duration-300">
-                    Voir nos services
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <Card className="max-w-4xl mx-auto bg-white shadow-2xl border-0 overflow-hidden">
+              <CardContent className="p-12 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/10 rounded-full mb-8">
+                  <Star className="w-8 h-8 text-pixelify-orange" />
+                </div>
+                
+                <h3 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal mb-6 title">
+                  Prêt à créer votre 
+                  <span className="text-pixelify-orange"> projet ?</span>
+                </h3>
+                
+                <p className="text-xl text-pixelify-charcoal-light mb-12 max-w-3xl mx-auto leading-relaxed">
+                  Chaque projet est unique. Parlons de vos besoins et créons ensemble quelque chose d'extraordinaire 
+                  qui marquera votre présence digitale.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <Link to="/#contact">
+                    <Button size="lg" className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                      <ExternalLink className="w-5 h-5 mr-3" />
+                      Démarrer un projet
+                    </Button>
+                  </Link>
+                  <Link to="/#services">
+                    <Button size="lg" variant="outline" className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 text-lg transition-all duration-300">
+                      Voir nos services
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </ScrollReveal>
         </div>
       </section>
