@@ -20,21 +20,21 @@ const ServicesSection = () => {
       title: "Conception de sites internet",
       description: "Des sites web conçus sur mesure qui reflètent l'identité de votre marque et attirent vos visiteurs grâce à une expérience utilisateur transparente.",
       icon: (
-          <Monitor className="w-10 h-10 text-pixelify-blue-light" />
+          <Monitor className="w-10 h-10 text-pixelify-orange" />
       ),
     },
     {
       title: "Site e-commerce",
       description: "Boutiques en ligne avec paiements sécurisés hébergées exclusivement en Suisse. Gestion des stocks, commandes et clients avec la plus haute protection des données.",
       icon: (
-          <ShoppingCart className="w-10 h-10 text-pixelify-green-light" />
+          <ShoppingCart className="w-10 h-10 text-pixelify-orange" />
       ),
     },
     {
       title: "Applications Web Sur Mesure",
       description: "Développement d'applications web personnalisées avec backend hébergé en territoire suisse. Solutions métier adaptées à vos besoins spécifiques.",
       icon: (
-          <Smartphone className="w-10 h-10 text-pixelify-purple-light" />
+          <Smartphone className="w-10 h-10 text-pixelify-orange" />
       ),
     },
     // {
@@ -95,7 +95,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white pixel-overlay relative">
+    <section id="services" className="py-20 bg-white relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-pixelify-black relative">
@@ -133,7 +133,7 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 justify-center">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pixelify-gray-200 hover:border-pixelify-orange/30 bg-gradient-to-br from-white to-white/80 backdrop-blur-sm relative">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-pixelify-orange/20 relative">
               <CardContent className="p-8 text-center">
                 <div className="mb-6 text-pixelify-gray group-hover:text-pixelify-orange transition-colors duration-300 flex justify-center">
                   {service.icon}
@@ -153,25 +153,23 @@ const ServicesSection = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16 animate-fade-in">
-          <div className="p-8 max-w-4xl mx-auto border border-pixelify-orange/20 shadow-modern-lg relative pixel-gradient-orange overflow-hidden">
-            <div className="relative z-10 bg-white/95 p-6 backdrop-blur-sm">
-              <h3 className="text-3xl font-bold mb-4 text-pixelify-black">
-                Boostez votre présence en ligne avec notre expertise digitale
-              </h3>
-              <p className="text-lg text-pixelify-gray mb-6">
-                Sites web sur mesure, UX optimisée, hébergement local et support de proximité :
-                découvrez nos solutions clé en main pour développer votre activité en toute sérénité.
-              </p>
-              <Button
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  size="lg"
-              >
-                Discuter de votre projet
-              </Button>
-            </div>
+          <div className="bg-pixelify-orange/5 rounded-2xl p-8 max-w-4xl mx-auto border border-pixelify-orange/10 relative">
+            <h3 className="text-3xl font-bold mb-4 text-pixelify-black">
+              Boostez votre présence en ligne avec notre expertise digitale
+            </h3>
+            <p className="text-lg text-pixelify-gray mb-6">
+              Sites web sur mesure, UX optimisée, hébergement local et support de proximité :
+              découvrez nos solutions clé en main pour développer votre activité en toute sérénité.
+            </p>
+            <Button
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                size="lg"
+            >
+              Discuter de votre projet
+            </Button>
           </div>
         </div>
       </div>

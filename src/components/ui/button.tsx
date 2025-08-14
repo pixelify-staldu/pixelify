@@ -5,17 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transform hover:scale-105 active:scale-95",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border-2 hover:translate-y-0.5 active:translate-y-1",
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-br from-pixelify-orange via-pixelify-orange to-pixelify-orange-dark hover:from-pixelify-orange-dark hover:via-pixelify-orange hover:to-pixelify-orange text-white shadow-modern-lg hover:shadow-modern-xl border-none",
-        outline: "bg-white border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white shadow-modern hover:shadow-modern-lg",
-        destructive: "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-modern-lg hover:shadow-modern-xl border-none",
-        secondary: "bg-gradient-to-r from-pixelify-gray-100 to-pixelify-gray-200 text-pixelify-charcoal hover:from-pixelify-gray-200 hover:to-pixelify-gray-300 shadow-modern hover:shadow-modern-lg border-none",
-        blue: "bg-gradient-to-r from-pixelify-blue-light to-pixelify-blue-dark hover:from-pixelify-blue-dark hover:to-pixelify-blue-light text-white shadow-modern-lg hover:shadow-modern-xl border-none",
-        purple: "bg-gradient-to-r from-pixelify-purple-light to-pixelify-purple-dark hover:from-pixelify-purple-dark hover:to-pixelify-purple-light text-white shadow-modern-lg hover:shadow-modern-xl border-none",
-        ghost: "bg-transparent border-transparent hover:bg-pixelify-orange/10 hover:text-pixelify-orange shadow-none",
+        default: "bg-pixelify-orange hover:bg-pixelify-orange-dark text-white border-pixelify-orange-dark shadow-modern hover:shadow-modern-lg",
+        outline: "bg-white border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white hover:border-pixelify-orange-dark shadow-modern hover:shadow-modern-lg",
+        destructive: "bg-red-500 text-white hover:bg-red-600 border-red-600 shadow-modern hover:shadow-modern-lg",
+        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 border-gray-300 shadow-modern hover:shadow-modern-lg",
+        ghost: "bg-transparent border-transparent hover:bg-pixelify-orange hover:text-white hover:border-pixelify-orange-dark shadow-none",
         link: "text-pixelify-orange underline-offset-4 hover:underline border-none shadow-none",
       },
       size: {
