@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { supabase } from '@/integrations/supabase/client';
+import heroBackground from '@/assets/hero-bg.jpg';
 
 
 type HeroSectionProps = {
@@ -25,12 +26,20 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
-      {/* Background Elements */}
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-pixelify-navy/80 via-pixelify-teal/60 to-pixelify-blue-dark/70"></div>
+      </div>
+
+      {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-gray/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-charcoal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/20 blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-purple-light/20 blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-green-light/20 blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -45,18 +54,18 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight relative">
-              <span className="text-pixelify-charcoal title">
+              <span className="text-white title drop-shadow-lg">
                 Vos projets{' '}
               </span>
-              <span className="text-pixelify-orange  title">
+              <span className="text-pixelify-orange title drop-shadow-lg">
                  pixelisés{' '}
               </span>
-              <span className="text-pixelify-charcoal  title">
+              <span className="text-white title drop-shadow-lg">
                 vers le succès
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl text-pixelify-charcoal mb-10 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto drop-shadow-md">
               Nous concevons des sites web à votre image et vous suivons dans la digitalisation de votre activité.
             </p>
 
@@ -84,7 +93,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               <Button 
                 onClick={scrollToContact}
                 size="lg"
-                className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative"
+                className="px-8 py-4 text-lg font-semibold"
               >
                 Votre projet
               </Button>
@@ -92,9 +101,16 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
                 onClick={scrollToPortfolio}
                 variant="outline"
                 size="lg"
-                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                className="px-8 py-4 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-pixelify-navy"
               >
                 Nos réalisations
+              </Button>
+              <Button 
+                variant="blue"
+                size="lg"
+                className="px-6 py-4 text-lg font-semibold"
+              >
+                Découvrir
               </Button>
             </div>
           </div>
@@ -103,8 +119,8 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-pixelify-charcoal rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-pixelify-charcoal rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-white/80 flex justify-center">
+          <div className="w-1 h-3 bg-white/80 mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
