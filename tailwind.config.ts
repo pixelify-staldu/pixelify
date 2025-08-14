@@ -89,10 +89,9 @@ export default {
 				none: '0px'
 			},
 			boxShadow: {
-				'pixel': '4px 4px 0px 0px rgba(0,0,0,0.3)',
-				'pixel-lg': '6px 6px 0px 0px rgba(0,0,0,0.3)',
-				'pixel-orange': '4px 4px 0px 0px rgba(255,107,53,0.5)',
-				'pixel-inset': 'inset 2px 2px 0px 0px rgba(0,0,0,0.2)'
+				'modern': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+				'modern-lg': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+				'modern-xl': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
 			},
 			keyframes: {
 				'accordion-down': {

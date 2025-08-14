@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -109,15 +109,9 @@
       font-weight: 700;
     }
 
-  p, span, input, textarea, button{
-    font-family: 'Orbitron', monospace;
+  p, span, input, textarea, button, label{
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-  }
-  
-  .pixel-font {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 0.875rem;
-    line-height: 1.5;
   }
   }
 }
