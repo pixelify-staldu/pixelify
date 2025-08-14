@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
@@ -12,6 +12,7 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,16 +29,21 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (location.pathname === '/contact') {
+      // Already on contact page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Navigate to home page and then scroll
-      window.location.href = '/#contact';
+      // Navigate to contact page
+      navigate('/contact');
     }
     setIsOpen(false);
   };
 
   const navItems = [
     { name: 'Accueil', href: '/', isRoute: true },
-    /*{ name: 'À propos', href: '/about', isRoute: true },*/
+    { name: 'À propos', href: '/about', isRoute: true },
+    { name: 'Portfolio', href: '/portfolio', isRoute: true },
+    { name: 'Contact', href: '/contact', isRoute: true },
   ];
 
   return (
@@ -78,7 +84,7 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
               onClick={scrollToContact}
               className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              Commencer un projet
+              {location.pathname === '/contact' ? 'Nous contacter' : 'Commencer un projet'}
             </Button>
           </div>
 
@@ -112,7 +118,7 @@ const Navigation = ({ siteInfo }: NavigationProps) => {
                   onClick={scrollToContact}
                   className="w-full bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-6 py-2 rounded-full font-semibold transition-all duration-300"
                 >
-                  Commencer un projet
+                  {location.pathname === '/contact' ? 'Nous contacter' : 'Commencer un projet'}
                 </Button>
               </div>
             </div>

@@ -438,7 +438,7 @@ const Portfolio = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <Link to="/#contact">
+                  <Link to="/contact">
                     <Button size="lg" className="bg-pixelify-orange hover:bg-pixelify-orange-dark text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                       <ExternalLink className="w-5 h-5 mr-3" />
                       Démarrer un projet
