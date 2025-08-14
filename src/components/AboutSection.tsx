@@ -3,7 +3,7 @@ import {Card, CardContent} from "@/components/ui/card";
 
 const AboutSection = () => {
     return (
-        <section id="about" className="py-20 bg-gradient-to-br from-pixelify-slate to-gray-50 relative">
+        <section id="about" className="py-20 bg-gradient-to-br from-pixelify-gray-100 via-white to-pixelify-blue-light/10 relative">
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center mb-16 animate-fade-in">
@@ -18,7 +18,7 @@ const AboutSection = () => {
                 <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
                     {/* Left Content */}
                     <div className="space-y-6 animate-fade-in">
-                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <div className="bg-gradient-to-br from-white to-pixelify-blue-light/5 p-8 shadow-lg border border-pixelify-blue-light/20 hover:shadow-xl transition-all duration-300">
                             <h3 className="text-2xl font-bold text-pixelify-charcoal mb-4">Notre Vision</h3>
                             <p className="text-lg text-pixelify-charcoal leading-relaxed">
                                 Chez <strong>Pixelify</strong>, nous sommes convaincus qu'un site web ne se limite pas à un simple design séduisant. 
@@ -26,7 +26,7 @@ const AboutSection = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <div className="bg-gradient-to-br from-white to-pixelify-purple-light/5 p-8 shadow-lg border border-pixelify-purple-light/20 hover:shadow-xl transition-all duration-300">
                             <h3 className="text-2xl font-bold text-pixelify-charcoal mb-4">Notre Approche</h3>
                             <p className="text-lg text-pixelify-charcoal leading-relaxed">
                                 Notre méthode combine <strong className="text-pixelify-orange">créativité, stratégie et savoir-faire suisse</strong> 
@@ -46,7 +46,7 @@ const AboutSection = () => {
                         {/*    </p>*/}
                         {/*</div>*/}
 
-                        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-gray-100 shadow-lg">
+                        <div className="bg-gradient-to-br from-white/90 via-pixelify-green-light/5 to-white/80 backdrop-blur-sm p-8 max-w-4xl mx-auto border border-pixelify-green-light/20 shadow-lg">
                             <h3 className="text-2xl font-bold text-pixelify-charcoal mb-4">Notre Engagement</h3>
                             <p className="text-lg text-pixelify-charcoal leading-relaxed">
                                 Engagés pour la qualité et la proximité, nous collaborons avec des

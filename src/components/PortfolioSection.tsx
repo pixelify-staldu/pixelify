@@ -56,7 +56,7 @@ const PortfolioSection = () => {
     }
 
     return (
-        <section id="portfolio" className="py-20 bg-pixelify-slate">
+        <section id="portfolio" className="py-20 bg-gradient-to-br from-pixelify-gray-100 via-pixelify-green-light/5 to-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16 animate-fade-in">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -90,7 +90,7 @@ const PortfolioSection = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project, index) => (
                         <Card key={project.id}
-                              className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-0 shadow-lg overflow-hidden animate-fade-in">
+                              className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-pixelify-gray-200 shadow-modern-lg overflow-hidden animate-fade-in bg-gradient-to-br from-white to-white/90 backdrop-blur-sm">
                             <div className="relative overflow-hidden">
                                 <img
                                     src={project.image_url || "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"}
@@ -114,7 +114,7 @@ const PortfolioSection = () => {
                                         <Button
                                             size="sm"
                                             onClick={() => window.open(project.project_url, '_blank')}
-                                            className="bg-white text-pixelify-orange hover:bg-pixelify-orange hover:text-white"
+                                            className="bg-white text-pixelify-blue-light hover:bg-pixelify-blue-light hover:text-white border border-pixelify-blue-light"
                                         >
                                             Voir le projet →
                                         </Button>
@@ -136,7 +136,7 @@ const PortfolioSection = () => {
                                         {project.technologies.map((tech: string, techIndex: number) => (
                                             <span
                                                 key={techIndex}
-                                                className="bg-gradient-to-r from-pixelify-navy/10 to-pixelify-teal/10 text-pixelify-navy px-3 py-1 rounded-full text-xs font-medium"
+                                                className="bg-gradient-to-r from-pixelify-purple-light/10 to-pixelify-green-light/10 text-pixelify-charcoal px-3 py-1 text-xs font-medium border border-pixelify-purple-light/20"
                                             >
                                                 {tech}
                                               </span>

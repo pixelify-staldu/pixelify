@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-r from-pixelify-orange to-pixelify-orange-light hover:from-pixelify-orange-dark hover:to-pixelify-orange text-white shadow-modern-lg hover:shadow-modern-xl border-none",
+        default: "bg-gradient-to-br from-pixelify-orange via-pixelify-orange to-pixelify-orange-dark hover:from-pixelify-orange-dark hover:via-pixelify-orange hover:to-pixelify-orange text-white shadow-modern-lg hover:shadow-modern-xl border-none",
         outline: "bg-white border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white shadow-modern hover:shadow-modern-lg",
         destructive: "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-modern-lg hover:shadow-modern-xl border-none",
         secondary: "bg-gradient-to-r from-pixelify-gray-100 to-pixelify-gray-200 text-pixelify-charcoal hover:from-pixelify-gray-200 hover:to-pixelify-gray-300 shadow-modern hover:shadow-modern-lg border-none",

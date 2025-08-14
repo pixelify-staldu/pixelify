@@ -20,21 +20,21 @@ const ServicesSection = () => {
       title: "Conception de sites internet",
       description: "Des sites web conçus sur mesure qui reflètent l'identité de votre marque et attirent vos visiteurs grâce à une expérience utilisateur transparente.",
       icon: (
-          <Monitor className="w-10 h-10 text-pixelify-orange" />
+          <Monitor className="w-10 h-10 text-pixelify-blue-light" />
       ),
     },
     {
       title: "Site e-commerce",
       description: "Boutiques en ligne avec paiements sécurisés hébergées exclusivement en Suisse. Gestion des stocks, commandes et clients avec la plus haute protection des données.",
       icon: (
-          <ShoppingCart className="w-10 h-10 text-pixelify-orange" />
+          <ShoppingCart className="w-10 h-10 text-pixelify-green-light" />
       ),
     },
     {
       title: "Applications Web Sur Mesure",
       description: "Développement d'applications web personnalisées avec backend hébergé en territoire suisse. Solutions métier adaptées à vos besoins spécifiques.",
       icon: (
-          <Smartphone className="w-10 h-10 text-pixelify-orange" />
+          <Smartphone className="w-10 h-10 text-pixelify-purple-light" />
       ),
     },
     // {
@@ -95,7 +95,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white relative">
+    <section id="services" className="py-20 bg-gradient-to-br from-white via-pixelify-purple-light/5 to-pixelify-gray-100 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in relative">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-pixelify-black relative">
@@ -133,7 +133,7 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 justify-center">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-pixelify-orange/20 relative">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pixelify-gray-200 hover:border-pixelify-orange/30 bg-gradient-to-br from-white to-white/80 backdrop-blur-sm relative">
               <CardContent className="p-8 text-center">
                 <div className="mb-6 text-pixelify-gray group-hover:text-pixelify-orange transition-colors duration-300 flex justify-center">
                   {service.icon}
@@ -153,7 +153,7 @@ const ServicesSection = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16 animate-fade-in">
-          <div className="bg-pixelify-orange/5 rounded-2xl p-8 max-w-4xl mx-auto border border-pixelify-orange/10 relative">
+          <div className="bg-gradient-to-br from-pixelify-orange/10 via-pixelify-orange/5 to-white p-8 max-w-4xl mx-auto border border-pixelify-orange/20 shadow-modern-lg relative">
             <h3 className="text-3xl font-bold mb-4 text-pixelify-black">
               Boostez votre présence en ligne avec notre expertise digitale
             </h3>
