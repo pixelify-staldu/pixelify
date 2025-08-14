@@ -65,25 +65,34 @@ export default {
 				},
 				pixelify: {
 					orange: '#ff6b35',
-					'orange-dark': '#e6521c',
+					'orange-dark': '#d4501a',
 					'orange-light': '#ff8552',
-					gray: '#6b7280',
-					'gray-light': '#9ca3af',
-					'gray-dark': '#4b5563',
-					black: '#1f2937',
-					'black-light': '#374151',
+					navy: '#1a1a2e',
+					teal: '#16213e',
+					gray: '#555555',
+					'gray-light': '#777777',
+					'gray-dark': '#333333',
+					black: '#000000',
+					'black-light': '#1a1a1a',
 					white: '#ffffff',
-					'white-dark': '#f9fafb',
-					charcoal: '#374151',
-					'charcoal-light': '#6b7280',
-					slate: '#f8fafc',
-					'slate-dark': '#e2e8f0'
+					'white-dark': '#f5f5f5',
+					charcoal: '#2a2a2a',
+					'charcoal-light': '#555555',
+					slate: '#f0f0f0',
+					'slate-dark': '#cccccc'
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: '0px',
+				md: '0px',
+				sm: '0px',
+				none: '0px'
+			},
+			boxShadow: {
+				'pixel': '4px 4px 0px 0px rgba(0,0,0,0.3)',
+				'pixel-lg': '6px 6px 0px 0px rgba(0,0,0,0.3)',
+				'pixel-orange': '4px 4px 0px 0px rgba(255,107,53,0.5)',
+				'pixel-inset': 'inset 2px 2px 0px 0px rgba(0,0,0,0.2)'
 			},
 			keyframes: {
 				'accordion-down': {
