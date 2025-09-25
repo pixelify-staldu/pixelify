@@ -17,20 +17,16 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
     }
   };
 
-  const scrollToPortfolio = () => {
-    const element = document.getElementById('portfolio');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
-      {/* Background Elements */}
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-pixelify-orange/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pixelify-gray/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pixelify-charcoal/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <img 
+          src="/images/hero-background.jpg" 
+          alt="Hero background" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -45,18 +41,18 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight relative">
-              <span className="text-pixelify-charcoal title">
+              <span className="text-white title">
                 Vos projets{' '}
               </span>
               <span className="text-pixelify-orange  title">
                  pixelisés{' '}
               </span>
-              <span className="text-pixelify-charcoal  title">
+              <span className="text-white  title">
                 vers le succès
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl text-pixelify-charcoal mb-10 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl text-white mb-10 leading-relaxed max-w-3xl mx-auto">
               Nous concevons des sites web à votre image et vous suivons dans la digitalisation de votre activité.
             </p>
 
@@ -88,14 +84,6 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               >
                 Votre projet
               </Button>
-              <Button 
-                onClick={scrollToPortfolio}
-                variant="outline"
-                size="lg"
-                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
-              >
-                Nos réalisations
-              </Button>
             </div>
           </div>
         </div>
@@ -103,8 +91,8 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-pixelify-charcoal rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-pixelify-charcoal rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
