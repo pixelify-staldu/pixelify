@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
-
+import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -38,6 +38,9 @@ const Index = () => {
       </ScrollReveal>
       <ScrollReveal delay={200}>
         <ServicesSection />
+      </ScrollReveal>
+      <ScrollReveal delay={300}>
+        <TestimonialsSection />
       </ScrollReveal>
       <ScrollReveal delay={400}>
         <ContactSection />
