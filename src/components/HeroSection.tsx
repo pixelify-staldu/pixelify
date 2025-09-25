@@ -34,13 +34,15 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-5xl mx-auto">
-          <div className="animate-fade-in">
-              <div className="mb-6 flex justify-center relative">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Content Section */}
+          <div className="text-center lg:text-left">
+            <div className="animate-fade-in">
+              <div className="mb-6 flex justify-center lg:justify-start relative">
                 <img 
                   src="/images/logo-big-transparent.svg"
                   alt={siteInfo.company_name || "Logo"}
-                  className="h-16 md:h-40 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="h-12 md:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             
@@ -80,7 +82,7 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
             {/*  </div>*/}
             {/*</div>*/}
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 pb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
               <Button 
                 onClick={scrollToContact}
                 size="lg"
@@ -88,14 +90,18 @@ const HeroSection = ({ siteInfo }: HeroSectionProps) => {
               >
                 Votre projet
               </Button>
-              <Button 
-                onClick={scrollToPortfolio}
-                variant="outline"
-                size="lg"
-                className="border-2 border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
-              >
-                Nos réalisations
-              </Button>
+            </div>
+            </div>
+          </div>
+
+          {/* Image Section */}
+          <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="relative">
+              <img 
+                src="/images/hero-illustration.jpg"
+                alt="Illustration pixelisée d'un projet web en développement"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
             </div>
           </div>
         </div>
