@@ -4,24 +4,50 @@ import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Target, Compass, Heart, Anchor, Zap, Shield, Eye, CheckCircle, Settings, Quote } from 'lucide-react';
+import { Mail, Target, Compass, Heart, Anchor, Zap, Shield, Eye, CheckCircle, Settings, Quote, Users, Calendar, MapPin } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
 const About = () => {
   const [siteInfo, setSiteInfo] = useState<any>({});
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  const [timeline, setTimeline] = useState<any[]>([]);
 
   useEffect(() => {
     fetchSiteInfo();
+    fetchTeamMembers();
+    fetchTimeline();
   }, []);
 
   const fetchSiteInfo = async () => {
     const { data } = await supabase
       .from('site_info')
       .select('*')
-      .single();
+      .maybeSingle();
     
     if (data) {
       setSiteInfo(data);
+    }
+  };
+
+  const fetchTeamMembers = async () => {
+    const { data } = await supabase
+      .from('team_members')
+      .select('*')
+      .order('display_order', { ascending: true });
+    
+    if (data) {
+      setTeamMembers(data);
+    }
+  };
+
+  const fetchTimeline = async () => {
+    const { data } = await supabase
+      .from('company_timeline')
+      .select('*')
+      .order('display_order', { ascending: true });
+    
+    if (data) {
+      setTimeline(data);
     }
   };
 
@@ -306,6 +332,138 @@ const About = () => {
                 </div>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <ScrollReveal delay={500}>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/10 rounded-full mb-6">
+                <Users className="w-8 h-8 text-pixelify-orange" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal mb-4 title">Notre Équipe</h2>
+              <p className="text-xl text-pixelify-charcoal-light">Les talents qui donnent vie à vos projets</p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              {teamMembers.length > 0 ? (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {teamMembers.map((member, index) => (
+                    <ScrollReveal key={member.id} delay={600 + index * 100}>
+                      <Card className="group hover:shadow-xl transition-all duration-300 border-pixelify-orange/20 hover:border-pixelify-orange/40">
+                        <CardContent className="p-6 text-center">
+                          <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-pixelify-orange to-pixelify-orange-dark rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            {member.image_url ? (
+                              <img src={member.image_url} alt={member.name} className="w-full h-full rounded-full object-cover" />
+                            ) : (
+                              <Users className="w-12 h-12 text-white" />
+                            )}
+                          </div>
+                          <h3 className="text-xl font-bold text-pixelify-charcoal mb-2 title">{member.name}</h3>
+                          <p className="text-pixelify-orange font-semibold mb-3">{member.position}</p>
+                          {member.bio && (
+                            <p className="text-sm text-pixelify-charcoal-light leading-relaxed">{member.bio}</p>
+                          )}
+                          {member.email && (
+                            <div className="mt-4">
+                              <Button 
+                                variant="outline" 
+                                size="sm" 
+                                className="border-pixelify-orange text-pixelify-orange hover:bg-pixelify-orange hover:text-white"
+                                onClick={() => window.location.href = `mailto:${member.email}`}
+                              >
+                                <Mail className="w-4 h-4 mr-2" />
+                                Contacter
+                              </Button>
+                            </div>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <div className="w-32 h-32 mx-auto mb-6 bg-pixelify-orange/10 rounded-full flex items-center justify-center">
+                    <Users className="w-16 h-16 text-pixelify-orange" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-pixelify-charcoal mb-4 title">Équipe en croissance</h3>
+                  <p className="text-pixelify-charcoal-light max-w-2xl mx-auto">
+                    Pixelify grandit ! Nous recherchons des talents passionnés pour rejoindre notre équipe. 
+                    Vous partagez notre vision du digital accessible et de qualité ? Contactez-nous !
+                  </p>
+                  <Button 
+                    className="mt-6 bg-pixelify-orange hover:bg-pixelify-orange-dark text-white"
+                    onClick={() => window.location.href = '/contact'}
+                  >
+                    Nous rejoindre
+                  </Button>
+                </div>
+              )}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Company Timeline */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <ScrollReveal delay={600}>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-pixelify-orange/10 rounded-full mb-6">
+                <Calendar className="w-8 h-8 text-pixelify-orange" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-pixelify-charcoal mb-4 title">Notre Histoire</h2>
+              <p className="text-xl text-pixelify-charcoal-light">Les étapes clés de notre parcours</p>
+            </div>
+
+            {timeline.length > 0 && (
+              <div className="max-w-4xl mx-auto">
+                <div className="relative">
+                  {/* Ligne centrale pour desktop */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-pixelify-orange to-pixelify-orange/30 rounded-full hidden lg:block"></div>
+                  
+                  <div className="space-y-12">
+                    {timeline.map((item, index) => (
+                      <ScrollReveal key={item.id} delay={700 + index * 100}>
+                        <div className={`flex flex-col lg:flex-row items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                          {/* Contenu */}
+                          <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'} mb-6 lg:mb-0`}>
+                            <Card className={`p-6 shadow-lg border-2 hover:shadow-xl transition-all duration-300 ${
+                              item.is_milestone 
+                                ? 'border-pixelify-orange bg-gradient-to-br from-pixelify-orange/5 to-pixelify-orange/10' 
+                                : 'border-pixelify-orange/20 bg-white'
+                            }`}>
+                              <div className="flex items-center mb-4">
+                                <div className="flex items-center justify-center w-12 h-12 bg-pixelify-orange rounded-full text-white font-bold mr-4">
+                                  {item.year}
+                                </div>
+                                {item.is_milestone && (
+                                  <div className="px-3 py-1 bg-pixelify-orange text-white text-xs font-semibold rounded-full">
+                                    Milestone
+                                  </div>
+                                )}
+                              </div>
+                              <h3 className="text-xl font-bold text-pixelify-charcoal mb-3 title">{item.title}</h3>
+                              <p className="text-pixelify-charcoal leading-relaxed">{item.description}</p>
+                            </Card>
+                          </div>
+
+                          {/* Point central pour desktop */}
+                          <div className="hidden lg:block w-6 h-6 bg-pixelify-orange rounded-full border-4 border-white shadow-lg z-10"></div>
+                          
+                          {/* Espace vide pour l'autre côté */}
+                          <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}></div>
+                        </div>
+                      </ScrollReveal>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </ScrollReveal>
         </div>
       </section>
