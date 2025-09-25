@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Target, Compass, Heart, Anchor, Zap, Shield, Eye, CheckCircle, Settings, Quote, Users, Calendar, MapPin } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import aboutHeroImage from '@/assets/about-hero-digital.jpg';
 
 const About = () => {
   const [siteInfo, setSiteInfo] = useState<any>({});
@@ -61,14 +62,24 @@ const About = () => {
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-pixelify-slate to-gray-50 relative overflow-hidden">
-        <div className="container mx-auto px-4">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src={aboutHeroImage} 
+            alt="Digital innovation background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-pixelify-slate/80 to-gray-50/90"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal delay={100}>
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 title">
                 <span className="text-pixelify-charcoal">À </span>
                 <span className="text-pixelify-orange">propos</span>
               </h1>
-              <p className="text-xl text-pixelify-charcoal-light leading-relaxed">
+              <p className="text-xl text-pixelify-charcoal leading-relaxed">
                 Découvrez <strong className="text-pixelify-orange">Pixelify</strong>, votre partenaire digital suisse pour des solutions web sur mesure.
               </p>
             </div>
